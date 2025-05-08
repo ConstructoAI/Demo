@@ -1,0 +1,398 @@
+/* style.css */
+
+/* --- Variables CSS (optionnel mais recommandé pour la cohérence) --- */
+:root {
+    --primary-color: #3B82F6; /* Correspond à config.toml */
+    --primary-color-darker: #2563EB;
+    --primary-color-darkest: #1D4ED8;
+    --background-color: #F9FAFB; /* Correspond à config.toml */
+    --secondary-background-color: #FFFFFF; /* Correspond à config.toml */
+    --text-color: #374151; /* Correspond à config.toml */
+    --text-color-light: #6B7280; /* Gris plus clair pour sous-textes */
+    --border-color: #E5E7EB;     /* Gris clair pour les bordures */
+    --border-color-light: #F3F4F6; /* Gris très clair */
+    --border-radius-sm: 0.375rem; /* 6px */
+    --border-radius-md: 0.5rem;   /* 8px */
+    --font-family: 'Inter', sans-serif; /* Référence à la police */
+    --box-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --box-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* --- Reset et Styles Globaux --- */
+body {
+    font-family: var(--font-family) !important;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6; /* Améliore la lisibilité */
+    font-size: 16px; /* Taille de base */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family) !important;
+    font-weight: 700 !important; /* Ou 600 pour semi-bold */
+    color: var(--text-color); /* Assurer la couleur du texte */
+    margin-bottom: 0.8em; /* Ajouter de l'espace sous les titres */
+    line-height: 1.3; /* Hauteur de ligne pour titres */
+}
+
+/* --- Styles pour la Sidebar --- */
+/* Cibler la sidebar (le sélecteur peut changer) */
+section[data-testid="stSidebar"] {
+    background-color: var(--secondary-background-color);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem; /* Plus d'espace intérieur */
+}
+
+/* Enlever la bordure autour du contenu de la sidebar */
+section[data-testid="stSidebar"] > div:first-child {
+    /* border: 1px solid red; */ /* Décommentez pour voir la cible */
+}
+
+/* Titre de la sidebar */
+section[data-testid="stSidebar"] .stHeadingContainer h1 {
+   font-size: 1.5rem; /* Taille du titre */
+   color: var(--primary-color); /* Utiliser la couleur primaire */
+   margin-bottom: 1.5rem; /* Espace après le titre */
+}
+
+/* Sous-titres dans la sidebar */
+section[data-testid="stSidebar"] h3 { /* Ou stSubheader */
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500; /* Moins gras que les titres principaux */
+    color: var(--text-color-light);
+    margin-top: 2rem; /* Plus d'espace avant */
+    margin-bottom: 0.75rem;
+    text-transform: uppercase; /* Optionnel: mettre en majuscules */
+    letter-spacing: 0.05em; /* Optionnel: espacement des lettres */
+    display: flex; /* Pour aligner icône et texte */
+    align-items: center;
+}
+/* Espace entre icône et texte si on utilise markdown dans subheader */
+section[data-testid="stSidebar"] h3 svg {
+    margin-right: 0.5em;
+}
+
+/* Style des séparateurs */
+section[data-testid="stSidebar"] hr {
+    display: none; /* Cacher les hr, utiliser les marges des h3 */
+}
+
+/* --- Style des Composants Streamlit (Sidebar & Main) --- */
+
+/* Boutons */
+.stButton > button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--box-shadow-sm);
+    width: 100%; /* Faire prendre toute la largeur par défaut */
+    text-align: center;
+    display: inline-flex; /* Pour aligner contenu si icône */
+    align-items: center;
+    justify-content: center;
+}
+.stButton > button:hover {
+    background-color: var(--primary-color-darker);
+    box-shadow: var(--box-shadow-md);
+}
+.stButton > button:active {
+    background-color: var(--primary-color-darkest);
+}
+.stButton > button:focus {
+    outline: 2px solid var(--primary-color); /* Indicateur de focus */
+    outline-offset: 2px;
+}
+.stButton > button > div { /* Pour aligner le texte/icône */
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* Espace entre icône et texte */
+}
+
+/* Bouton "Nouvelle Consultation" (style secondaire) */
+/* Ciblage mis à jour pour correspondre aux clés dans app.py */
+.stButton[key="new_consult_button_top"] > button { /* Utiliser la clé unique du bouton en haut */
+    background-color: var(--secondary-background-color);
+    color: var(--text-color-light);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+}
+.stButton[key="new_consult_button_top"] > button:hover {
+    background-color: var(--border-color-light); /* Gris très clair au survol */
+    border-color: #D1D5DB;
+    color: var(--text-color);
+    box-shadow: var(--box-shadow-sm);
+}
+
+
+/* Selectbox (Dropdown) */
+.stSelectbox > div {
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-background-color);
+    color: var(--text-color);
+    box-shadow: var(--box-shadow-sm);
+}
+.stSelectbox input { /* Pour le texte dans la selectbox */
+    font-family: var(--font-family) !important;
+}
+
+
+/* File Uploader */
+.stFileUploader {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--secondary-background-color);
+    padding: 1rem 1.5rem; /* Ajuster padding */
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    margin-top: 0.5rem; /* Espace après le subheader */
+}
+.stFileUploader:hover {
+    border-color: var(--primary-color);
+    background-color: #EFF6FF; /* Bleu très très pâle */
+}
+.stFileUploader label { /* Texte "Drag and drop..." */
+    color: var(--text-color-light);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+/* Bouton "Browse files" dans l'uploader */
+.stFileUploader section[data-testid="stFileUploadDropzone"] button {
+     background-color: var(--secondary-background-color);
+     color: var(--primary-color);
+     border: 1px solid var(--primary-color);
+     padding: 0.4rem 0.8rem;
+     font-weight: 500;
+     border-radius: var(--border-radius-md);
+     margin-top: 0.8rem; /* Espace au-dessus */
+}
+.stFileUploader section[data-testid="stFileUploadDropzone"] button:hover {
+    background-color: #DBEAFE; /* Bleu encore plus pâle */
+    border-color: #60A5FA;
+}
+/* Liste des fichiers uploadés */
+.stFileUploader [data-testid="stFileUploaderFile"] {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* Expander (Détails de l'analyse) */
+.stExpander {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--secondary-background-color);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow-sm);
+}
+.stExpander summary { /* Titre de l'expander */
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 0.8rem 1rem;
+}
+.stExpander div[role="button"] { /* Pour cibler le header cliquable */
+   padding: 0.5rem 0.8rem; /* Ajuster padding du header */
+}
+
+
+/* --- Style de la Zone de Chat Principale --- */
+
+/* Conteneur principal (ajuster padding si besoin) */
+/* Le sélecteur peut être .main .block-container */
+.main .block-container {
+    padding-top: 2.5rem; /* Un peu moins d'espace en haut */
+    padding-bottom: 5rem; /* Plus d'espace en bas avant l'input */
+    padding-left: 2rem;
+    padding-right: 2rem;
+    /* max-width: 1000px; */ /* LIGNE COMMENTÉE/SUPPRIMÉE */
+    /* margin: 0 auto; */    /* LIGNE COMMENTÉE/SUPPRIMÉE */
+    /* Le contenu prendra maintenant toute la largeur disponible */
+}
+
+/* Titre Principal de l'Expert */
+.main .block-container h1 {
+   font-size: 1.8rem; /* Plus grand */
+   margin-bottom: 0.2em;
+   font-weight: 600; /* Un peu moins gras que 700 */
+}
+/* Description sous le titre */
+/* NOTE: Ce sélecteur peut être fragile si la structure HTML de Streamlit change */
+.main .block-container > div[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlock"] > div:nth-child(2) p { /* Tentative de cibler la description sous le titre H1 */
+    color: var(--text-color-light);
+    font-size: 1rem;
+    margin-bottom: 1.5rem; /* Moins d'espace */
+}
+
+/* Séparateur principal (st.divider) */
+/* Cibler le st.divider() après le titre */
+/* NOTE: Ce sélecteur peut être fragile */
+.main .block-container > div[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlock"] > div[data-testid="stDivider"] {
+   border-top: 1px solid var(--border-color);
+   margin-bottom: 2rem;
+   margin-top: 1rem; /* Ajouter un peu d'espace au-dessus aussi */
+}
+
+/* Champ d'input du chat */
+div[data-testid="stChatInput"] {
+    background-color: var(--secondary-background-color);
+    border-top: 1px solid var(--border-color);
+    /* Rendre fixe en bas peut nécessiter des hacks JS/CSS plus complexes */
+    /* Pour l'instant, style simple */
+    padding: 0.5rem 1rem; /* Padding réduit */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.03); /* Légère ombre vers le haut */
+}
+/* Textarea dans l'input */
+div[data-testid="stChatInput"] textarea {
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color); /* Fond légèrement différent */
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-family) !important;
+}
+div[data-testid="stChatInput"] textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); /* Aura de focus */
+}
+
+/* Placeholder dans l'input */
+div[data-testid="stChatInput"] textarea::placeholder {
+  color: var(--text-color-light);
+  opacity: 0.8;
+}
+/* Bouton envoyer (flèche) */
+div[data-testid="stChatInput"] button {
+    background-color: var(--primary-color) !important; /* Forcer la couleur primaire */
+    border-radius: var(--border-radius-md) !important; /* Moins rond que 50% */
+    fill: white !important; /* Couleur de l'icône flèche */
+    padding: 0.5rem !important; /* Ajuster taille/padding */
+    box-shadow: var(--box-shadow-sm);
+    transition: background-color 0.2s ease;
+    border: none !important; /* Enlever bordure par défaut */
+}
+div[data-testid="stChatInput"] button:hover {
+    background-color: var(--primary-color-darker) !important;
+}
+div[data-testid="stChatInput"] button:disabled {
+    background-color: #9CA3AF !important; /* Gris si désactivé */
+}
+
+/* Bulles de Chat */
+.stChatMessage {
+    border-radius: var(--border-radius-md);
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent; /* Bordure transparente par défaut */
+    box-shadow: var(--box-shadow-sm);
+    background-color: var(--secondary-background-color); /* Fond blanc par défaut */
+    max-width: 85%; /* Légèrement plus large que 80% */
+    transition: box-shadow 0.2s ease;
+    line-height: 1.6; /* Assurer l'interligne ici aussi */
+}
+.stChatMessage:hover {
+    /* box-shadow: var(--box-shadow-md); */ /* Peut être distrayant, désactiver? */
+}
+
+
+/* Message Utilisateur */
+div[data-testid="stChatMessage"]:has(div[data-testid^="chatAvatarIcon-user"]) {
+    background-color: #EFF6FF; /* Bleu très pâle (Tailwind Blue 50) */
+    /* margin-left: auto; /* Alignement à droite géré par Streamlit */
+    border: 1px solid #DBEAFE; /* Bordure très légère (Blue 100) */
+    /* border-top-right-radius: 0; /* Optionnel: Casser un coin pour look "bulle" */
+}
+
+/* Message Assistant */
+div[data-testid="stChatMessage"]:has(div[data-testid^="chatAvatarIcon-assistant"]) {
+    background-color: var(--secondary-background-color); /* Fond blanc standard */
+    border: 1px solid var(--border-color); /* Ajouter une bordure légère */
+    box-shadow: none; /* Enlever l'ombre par défaut pour différencier */
+     /* margin-right: auto; /* Alignement à gauche géré par Streamlit */
+     /* border-top-left-radius: 0; /* Optionnel: Casser un coin pour look "bulle" */
+}
+div[data-testid="stChatMessage"]:has(div[data-testid^="chatAvatarIcon-assistant"]):hover {
+    /* box-shadow: var(--box-shadow-sm); */ /* Désactivé aussi */
+}
+
+/* Contenu texte dans la bulle */
+.stChatMessage p, .stChatMessage ul, .stChatMessage ol, .stChatMessage table, .stChatMessage li {
+    color: var(--text-color);
+    font-family: var(--font-family) !important;
+    font-size: 0.95rem; /* Légèrement plus petit que la base */
+    margin-bottom: 0.6em; /* Espace sous les paragraphes/listes réduit */
+}
+.stChatMessage p:last-child, .stChatMessage ul:last-child, .stChatMessage ol:last-child {
+    margin-bottom: 0; /* Pas d'espace après le dernier élément */
+}
+.stChatMessage ul, .stChatMessage ol {
+    padding-left: 1.5em; /* Indentation standard pour listes */
+}
+
+/* Style des tableaux dans le chat */
+.stChatMessage table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0; /* Espace avant/après */
+    font-size: 0.9rem; /* Encore plus petit pour les tableaux */
+    box-shadow: var(--box-shadow-sm);
+    border-radius: var(--border-radius-sm); /* Coins arrondis pour le tableau */
+    overflow: hidden; /* Pour que le radius s'applique aux coins */
+}
+.stChatMessage th, .stChatMessage td {
+    border: none; /* Enlever bordures internes par défaut */
+    border-bottom: 1px solid var(--border-color); /* Ligne sous chaque rangée */
+    padding: 0.6em 0.8em;
+    text-align: left;
+}
+.stChatMessage tr:last-child td {
+    border-bottom: none; /* Pas de ligne sous la dernière rangée */
+}
+.stChatMessage th {
+    background-color: var(--border-color-light); /* Fond léger pour les entêtes */
+    font-weight: 500; /* Moins gras que les titres */
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color); /* Ligne plus épaisse sous l'entête */
+}
+
+/* Code inline et blocs */
+.stChatMessage code {
+    background-color: #E5E7EB; /* Gris clair (Gray 200) */
+    padding: 0.2em 0.4em;
+    margin: 0 0.1em;
+    font-size: 85%;
+    border-radius: var(--border-radius-sm);
+    font-family: "monospace";
+    color: var(--text-color);
+}
+.stChatMessage pre {
+    background-color: #1F2937; /* Gris très foncé (Gray 800) */
+    color: #F9FAFB; /* Texte presque blanc (Gray 50) */
+    padding: 1em;
+    border-radius: var(--border-radius-md);
+    overflow-x: auto;
+    border: 1px solid #4B5563; /* Gray 600 */
+    margin: 1em 0; /* Espace avant/après */
+    font-size: 0.85rem; /* Plus petit pour le code */
+}
+.stChatMessage pre code {
+    background-color: transparent; color: inherit; padding: 0; margin: 0;
+    font-size: inherit; border-radius: 0; font-family: "monospace";
+    display: block; white-space: pre; line-height: 1.5; /* Interligne pour code */
+}
+
+/* --- Indicateurs et Status --- */
+/* Spinner (peut être difficile à styliser sans JS) */
+.stSpinner > div {
+    /* Styles de base, Streamlit peut les surcharger */
+    /* border-top-color: var(--primary-color) !important; */
+}
+
+/* Messages d'info/erreur/succès/warning */
+.stAlert {
+    border-radius: var(--border-radius-md);
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+}
+/* Vous pouvez cibler spécifiquement les types d'alertes si besoin */
+/* [data-testid="stAlert"][kind="success"] { ... } */
