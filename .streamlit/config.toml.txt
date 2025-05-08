@@ -1,55 +1,49 @@
 # .streamlit/config.toml
 
-# Documentation du Thème: https://docs.streamlit.io/library/advanced-features/theming
-
-[theme]
-# Couleur primaire utilisée pour les éléments interactifs
-# Exemple: Tailwind Blue 500
-primaryColor="#3B82F6"
-
-# Couleur de fond principale de l'application
-# Exemple: Tailwind Gray 50
-backgroundColor="#F9FAFB"
-
-# Couleur de fond pour les éléments comme la sidebar, les cartes, les expanders, etc.
-# Blanc pur pour un bon contraste
-secondaryBackgroundColor="#FFFFFF"
-
-# Couleur de base du texte
-# Exemple: Tailwind Gray 700
-textColor="#374151"
-
-# # Police de caractères. Déclarée ici pour la configuration Streamlit,
-# # mais l'application via CSS dans 'app.py' ou 'style.css' est souvent plus robuste.
-# # Assurez-vous que la police 'Inter' est chargée via Google Fonts dans app.py.
-# font="Inter" # <-- LIGNE COMMENTÉE: Cause l'avertissement "Inter is an invalid value".
-                # La police est déjà chargée et appliquée via CSS (app.py/style.css),
-                # cette ligne n'est donc pas nécessaire ici et peut être supprimée ou commentée.
-
-# --- Autres options de configuration utiles ---
-
 [server]
-# Option importante pour le déploiement (évite d'ouvrir un navigateur sur le serveur)
+# Si défini, Streamlit utilisera ce port
+# Pour Render, utilisez le port 8501 par défaut puisque Render gère le mappage automatiquement
+port = 8501
+
+# Désactive CORS pour permettre l'intégration dans d'autres sites web
+enableCORS = false
+
+# Désactive la protection XSRF pour simplifier le déploiement
+# Attention: à n'utiliser que si votre application ne manipule pas de données sensibles
+enableXsrfProtection = false
+
+# Configure le serveur pour écouter sur toutes les interfaces réseau
+# Nécessaire pour la plupart des environnements de déploiement comme Render
 headless = true
-
-# Optionnel: Port si vous lancez localement avec un port spécifique (défaut 8501)
-# port = 8501
-
-[client]
-# Masque une partie du menu hamburger Streamlit pour une interface plus propre
-# Options: "developer", "viewer", "minimal"
-toolbarMode = "minimal"
+enableWebsocketCompression = true
 
 [browser]
-# Désactive la collecte de statistiques d'utilisation par Streamlit (bonne pratique pour la confidentialité)
+# Ne pas ouvrir automatiquement un navigateur au démarrage
+# Essentiel pour les déploiements cloud
+serverAddress = "0.0.0.0"
 gatherUsageStats = false
+serverPort = 8501
 
-# Optionnel: Si vous voulez définir l'ordre des onglets dans le navigateur (peu utilisé)
-# serverAddress = "votre_domaine_ou_ip"
+[theme]
+# Personnalisation du thème de l'application
+# Vous pouvez ajuster ces couleurs pour correspondre à votre charte graphique
+primaryColor = "#3B82F6"  # Bleu principal (défini dans style.css)
+backgroundColor = "#F9FAFB"  # Fond principal (défini dans style.css)
+secondaryBackgroundColor = "#FFFFFF"  # Fond secondaire (défini dans style.css)
+textColor = "#374151"  # Couleur de texte (défini dans style.css)
+font = "Inter"  # Police définie dans style.css
 
-# Optionnel: Limites de taille pour les uploads (Streamlit a ses propres limites aussi)
-# La limite est généralement mieux gérée au niveau du serveur web (nginx, etc.) si applicable,
-# ou par les limites de la plateforme (Hugging Face Spaces).
-# maxUploadSize = 200 # En Megabytes. La valeur par défaut de Streamlit est 200Mo.
-                      # Augmenter ici n'a d'effet que si le serveur le permet aussi.
-                      # Pour Hugging Face, les limites de la plateforme prévalent souvent.
+[deprecation]
+# Désactive les avertissements de dépréciation pour éviter les messages dans les logs de Render
+showPyplotGlobalUse = false
+
+[global]
+# Augmente la taille maximale de téléchargement de fichier à 200Mo
+# Ajustez selon vos besoins, tout en tenant compte des limites de mémoire
+maxUploadSize = 200
+
+[runner]
+# Configure le comportement d'exécution du script
+# Utile pour optimiser les performances et la stabilité
+magicEnabled = true
+fastReruns = true
