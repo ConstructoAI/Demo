@@ -4,7 +4,7 @@ emoji: 🏗️
 colorFrom: indigo
 colorTo: blue
 sdk: streamlit
-sdk_version: 1.30.0 # Assurez-vous que c'est cohérent avec requirements.txt
+sdk_version: 1.45.0
 app_file: app.py
 pinned: false
 ---
