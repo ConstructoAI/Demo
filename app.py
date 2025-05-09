@@ -56,32 +56,6 @@ def get_image_base64(image_path):
         st.error(f"Erreur lors de la lecture de l'image: {e}")
         return ""
 
-# --- Fonction pour obtenir les secrets en toute sécurité ---
-def get_secret(key, default=None):
-    """
-    Récupère une valeur de secret depuis diverses sources, dans cet ordre:
-    1. st.secrets
-    2. Variables d'environnement
-    3. Valeur par défaut (optionnelle)
-    """
-    value = None
-    
-    # 1. Essayer st.secrets
-    try:
-        value = st.secrets.get(key)
-    except Exception:
-        pass
-    
-    # 2. Essayer variables d'environnement
-    if not value:
-        value = os.environ.get(key)
-    
-    # 3. Utiliser valeur par défaut si fournie et si aucune valeur trouvée
-    if not value and default is not None:
-        value = default
-        
-    return value
-
 # --- Fonction de vérification du mot de passe ET affichage page d'accueil/login ---
 def display_login_or_app():
     """
@@ -287,25 +261,11 @@ def display_login_or_app():
     st.markdown("<h2 style='text-align: center;'>Connexion</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Veuillez entrer le mot de passe pour accéder à l'application.</p>", unsafe_allow_html=True)
 
-    # Obtenir le mot de passe de manière sécurisée
-    correct_password = get_secret("APP_PASSWORD")
-    
-    # Gérer le cas où aucun mot de passe n'est configuré
+    correct_password = st.secrets.get("APP_PASSWORD")
     if not correct_password:
-        # En mode déploiement, utiliser un mot de passe de secours temporaire
-        is_production = os.environ.get("RENDER") or os.environ.get("PRODUCTION")
-        if is_production:
-            st.error("⚠️ Configuration manquante: Mot de passe d'authentification non défini.")
-            st.warning("L'administrateur doit configurer la variable APP_PASSWORD dans les paramètres Render.")
-            # Mot de passe de secours temporaire
-            correct_password = "constructo2025"
-            st.info(f"Mot de passe temporaire pour ce déploiement: {correct_password}")
-        else:
-            # En développement local, afficher un message d'erreur plus détaillé
-            st.error("Erreur de configuration: Secret 'APP_PASSWORD' non défini.")
-            st.info("Pour le développement local, créez un fichier .streamlit/secrets.toml avec APP_PASSWORD.")
-            st.info("Pour le déploiement sur Render, configurez APP_PASSWORD comme variable d'environnement.")
-            return False
+         st.error("Erreur de configuration: Secret 'APP_PASSWORD' non défini.")
+         st.info("Veuillez configurer ce secret.")
+         return False
 
     _, login_col, _ = st.columns([1, 1.5, 1])
     with login_col:
@@ -377,17 +337,10 @@ local_css("style.css") # Recharger pour s'assurer que les styles de l'app sont a
 
 # --- Load API Keys ---
 load_dotenv() # Pour le dev local si .env existe
+ANTHROPIC_API_KEY = st.secrets.get("ANTHROPIC_API_KEY")
+# Load APP_PASSWORD (if needed elsewhere, otherwise it's loaded in display_login_or_app)
+APP_PASSWORD = st.secrets.get("APP_PASSWORD")
 
-# Obtenir les clés API de manière sécurisée
-ANTHROPIC_API_KEY = get_secret("ANTHROPIC_API_KEY")
-APP_PASSWORD = get_secret("APP_PASSWORD")
-
-# Si la clé API Anthropic n'est pas configurée
-if not ANTHROPIC_API_KEY:
-    st.error("⚠️ Configuration manquante: Clé API Anthropic non définie.")
-    st.warning("L'API Anthropic est nécessaire pour le fonctionnement de l'application.")
-    st.info("Configurez ANTHROPIC_API_KEY dans les paramètres Render ou en local dans .streamlit/secrets.toml")
-    st.stop()
 
 # --- Initialize Logic Classes & Conversation Manager ---
 if 'profile_manager' not in st.session_state:
@@ -553,20 +506,28 @@ with st.sidebar:
     try:
         logo_path = os.path.join(os.path.dirname(__file__), "assets", "logo.png")
         if os.path.exists(logo_path):
-            st.image(logo_path, width=150)
+            # Modification pour centrer le logo et le texte "Constructo AI" dans la sidebar
+            st.markdown(
+                f"""
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; margin-bottom: 1rem;">
+                    <img src="data:image/png;base64,{get_image_base64(logo_path)}" style="width: 150px; height: auto; margin-bottom: 0.5rem;">
+                    <span style="color: #3B82F6; font-size: 1.5rem; font-weight: 500;">Constructo AI</span>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
         else:
              st.warning("Logo 'assets/logo.png' non trouvé.")
     except Exception as e:
         st.error(f"Erreur logo: {e}")
 
-    st.title("Constructo AI")
     if st.button("➕ Nouvelle Consultation", key="new_consult_button_top", use_container_width=True):
         save_current_conversation()
         start_new_consultation()
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
 
     # --- Profil Expert ---
-    st.markdown('<div class="sidebar-subheader">👤 Profil Expert</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-subheader">👤 PROFIL EXPERT</div>', unsafe_allow_html=True)
     if 'expert_advisor' in st.session_state and st.session_state.expert_advisor.profile_manager:
         profile_names = st.session_state.expert_advisor.profile_manager.get_profile_names()
         if profile_names:
@@ -593,7 +554,7 @@ with st.sidebar:
         st.error("Module Expert non initialisé.")
 
     # --- Analyse Fichiers ---
-    st.markdown('<div class="sidebar-subheader">📄 Analyse Fichiers</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-subheader">📄 ANALYSE FICHIERS</div>', unsafe_allow_html=True)
     uploaded_files_sidebar = []
     if 'expert_advisor' in st.session_state:
         supported_types = st.session_state.expert_advisor.get_supported_filetypes_flat()
@@ -613,7 +574,7 @@ with st.sidebar:
 
     # --- Aide Recherche Web (Nouvelle section) ---
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
-    st.markdown('<div class="sidebar-subheader">🔎 Recherche Web</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-subheader">🔎 RECHERCHE WEB</div>', unsafe_allow_html=True)
     with st.expander("Comment utiliser la recherche web"):
         st.markdown("""
         Pour effectuer une recherche web via Claude:
@@ -630,7 +591,7 @@ with st.sidebar:
     # --- Historique ---
     if st.session_state.get('conversation_manager'):
         st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
-        st.markdown('<div class="sidebar-subheader">🕒 Historique</div>', unsafe_allow_html=True)
+        st.markdown('<div class="sidebar-subheader">🕒 HISTORIQUE</div>', unsafe_allow_html=True)
         try:
             conversations = st.session_state.conversation_manager.list_conversations(limit=100)
             if not conversations: st.caption("Aucune consultation sauvegardée.")
@@ -649,7 +610,7 @@ with st.sidebar:
 
     # --- Export ---
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
-    st.markdown('<div class="sidebar-subheader">📥 Export</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-subheader">📥 EXPORT</div>', unsafe_allow_html=True)
     client_name_export = st.text_input("Nom client (optionnel)", key="client_name_export", placeholder="Pour rapport HTML")
     if 'html_download_data' not in st.session_state: st.session_state.html_download_data = None
     if st.button("Rapport HTML", key="gen_html_btn", use_container_width=True, help="Générer rapport HTML"):
@@ -666,14 +627,12 @@ with st.sidebar:
                         html_string = generate_html_report(st.session_state.messages, profile_name, conv_id, client_name_export)
                         if html_string: 
                             id_part = f"Conv{conv_id}" if conv_id else datetime.now().strftime('%Y%m%d_%H%M')
-                            filename = f"Rapport_ProjetsKDI_{id_part}.html"
+                            # Modification du nom de fichier ici
+                            filename = f"Rapport_Constructo_AI_{id_part}.html"
                             st.session_state.html_download_data = {"data": html_string, "filename": filename}
                             st.success("Rapport prêt.")
-                        else: 
-                            st.error("Échec génération HTML.")
-                    except Exception as e: 
-                        st.error(f"Erreur génération HTML: {e}")
-                        st.exception(e)
+                        else: st.error("Échec génération HTML.")
+                    except Exception as e: st.error(f"Erreur génération HTML: {e}"); st.exception(e)
             st.rerun()
     if st.session_state.get('html_download_data'):
         download_info = st.session_state.html_download_data
@@ -681,7 +640,7 @@ with st.sidebar:
 
     # --- Liens Programmes ---
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
-    st.markdown('<div class="sidebar-subheader">🔗 Logiciels Windows et Documents</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-subheader">🔗 LOGICIELS WINDOWS ET DOCUMENTS</div>', unsafe_allow_html=True)
     wetransfer_links = {"TAKEOFF": "https://we.tl/t-2m6p765rVv", "CRM": "https://we.tl/t-vsGuk2AQZO", "REGISTRE DES PROJETS": "https://we.tl/t-VKj2HseTAN", "GESTIONNAIRE D'INVENTAIRE": "https://we.tl/t-K2j2zQYBLx", "FORMULAIRES": "https://we.tl/t-tcXwFRQ6t2", "SMART NOTE": "https://we.tl/t-jYkQMXteMx", "GUIDE DES PROMPTS": "https://we.tl/t-efBWRHP6yG"}
     for program_name, link_url in wetransfer_links.items():
         if link_url and link_url != "#" and link_url.strip(): st.markdown(f"*   [{program_name}]({link_url})")
