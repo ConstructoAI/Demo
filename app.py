@@ -56,6 +56,32 @@ def get_image_base64(image_path):
         st.error(f"Erreur lors de la lecture de l'image: {e}")
         return ""
 
+# --- Fonction pour obtenir les secrets en toute sécurité ---
+def get_secret(key, default=None):
+    """
+    Récupère une valeur de secret depuis diverses sources, dans cet ordre:
+    1. st.secrets
+    2. Variables d'environnement
+    3. Valeur par défaut (optionnelle)
+    """
+    value = None
+    
+    # 1. Essayer st.secrets
+    try:
+        value = st.secrets.get(key)
+    except Exception:
+        pass
+    
+    # 2. Essayer variables d'environnement
+    if not value:
+        value = os.environ.get(key)
+    
+    # 3. Utiliser valeur par défaut si fournie et si aucune valeur trouvée
+    if not value and default is not None:
+        value = default
+        
+    return value
+
 # --- Fonction de vérification du mot de passe ET affichage page d'accueil/login ---
 def display_login_or_app():
     """
@@ -261,11 +287,25 @@ def display_login_or_app():
     st.markdown("<h2 style='text-align: center;'>Connexion</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Veuillez entrer le mot de passe pour accéder à l'application.</p>", unsafe_allow_html=True)
 
-    correct_password = st.secrets.get("APP_PASSWORD")
+    # Obtenir le mot de passe de manière sécurisée
+    correct_password = get_secret("APP_PASSWORD")
+    
+    # Gérer le cas où aucun mot de passe n'est configuré
     if not correct_password:
-         st.error("Erreur de configuration: Secret 'APP_PASSWORD' non défini.")
-         st.info("Veuillez configurer ce secret.")
-         return False
+        # En mode déploiement, utiliser un mot de passe de secours temporaire
+        is_production = os.environ.get("RENDER") or os.environ.get("PRODUCTION")
+        if is_production:
+            st.error("⚠️ Configuration manquante: Mot de passe d'authentification non défini.")
+            st.warning("L'administrateur doit configurer la variable APP_PASSWORD dans les paramètres Render.")
+            # Mot de passe de secours temporaire
+            correct_password = "constructo2025"
+            st.info(f"Mot de passe temporaire pour ce déploiement: {correct_password}")
+        else:
+            # En développement local, afficher un message d'erreur plus détaillé
+            st.error("Erreur de configuration: Secret 'APP_PASSWORD' non défini.")
+            st.info("Pour le développement local, créez un fichier .streamlit/secrets.toml avec APP_PASSWORD.")
+            st.info("Pour le déploiement sur Render, configurez APP_PASSWORD comme variable d'environnement.")
+            return False
 
     _, login_col, _ = st.columns([1, 1.5, 1])
     with login_col:
@@ -337,10 +377,17 @@ local_css("style.css") # Recharger pour s'assurer que les styles de l'app sont a
 
 # --- Load API Keys ---
 load_dotenv() # Pour le dev local si .env existe
-ANTHROPIC_API_KEY = st.secrets.get("ANTHROPIC_API_KEY")
-# Load APP_PASSWORD (if needed elsewhere, otherwise it's loaded in display_login_or_app)
-APP_PASSWORD = st.secrets.get("APP_PASSWORD")
 
+# Obtenir les clés API de manière sécurisée
+ANTHROPIC_API_KEY = get_secret("ANTHROPIC_API_KEY")
+APP_PASSWORD = get_secret("APP_PASSWORD")
+
+# Si la clé API Anthropic n'est pas configurée
+if not ANTHROPIC_API_KEY:
+    st.error("⚠️ Configuration manquante: Clé API Anthropic non définie.")
+    st.warning("L'API Anthropic est nécessaire pour le fonctionnement de l'application.")
+    st.info("Configurez ANTHROPIC_API_KEY dans les paramètres Render ou en local dans .streamlit/secrets.toml")
+    st.stop()
 
 # --- Initialize Logic Classes & Conversation Manager ---
 if 'profile_manager' not in st.session_state:
@@ -617,9 +664,16 @@ with st.sidebar:
                         if current_profile: profile_name = current_profile.get('name', 'Expert')
                         conv_id = st.session_state.current_conversation_id
                         html_string = generate_html_report(st.session_state.messages, profile_name, conv_id, client_name_export)
-                        if html_string: id_part = f"Conv{conv_id}" if conv_id else datetime.now().strftime('%Y%m%d_%H%M'); filename = f"Rapport_ProjetsKDI_{id_part}.html"; st.session_state.html_download_data = {"data": html_string, "filename": filename}; st.success("Rapport prêt.")
-                        else: st.error("Échec génération HTML.")
-                    except Exception as e: st.error(f"Erreur génération HTML: {e}"); st.exception(e)
+                        if html_string: 
+                            id_part = f"Conv{conv_id}" if conv_id else datetime.now().strftime('%Y%m%d_%H%M')
+                            filename = f"Rapport_ProjetsKDI_{id_part}.html"
+                            st.session_state.html_download_data = {"data": html_string, "filename": filename}
+                            st.success("Rapport prêt.")
+                        else: 
+                            st.error("Échec génération HTML.")
+                    except Exception as e: 
+                        st.error(f"Erreur génération HTML: {e}")
+                        st.exception(e)
             st.rerun()
     if st.session_state.get('html_download_data'):
         download_info = st.session_state.html_download_data
