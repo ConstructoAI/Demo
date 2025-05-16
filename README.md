@@ -1,23 +1,23 @@
 ---
-title: Constructo AI
-emoji: 🏗️
-colorFrom: indigo
-colorTo: blue
+title: Desmarais & Gagné AI
+emoji: 🔧
+colorFrom: green
+colorTo: gray
 sdk: streamlit
-sdk_version: 1.45.0
+sdk_version: 1.30.0 # Assurez-vous que c'est cohérent avec requirements.txt
 app_file: app.py
 pinned: false
 ---
 
-# Constructo AI - Assistant Expert & Recherche Web (via Claude)
+# Desmarais & Gagné AI - Assistant Expert en Fabrication Métallique
 
-Interface Web pour le système expert Constructo AI, construite avec Streamlit. Elle intègre l'API Anthropic Claude pour des conversations expertes et la recherche web intégrée.
+Interface Web pour le système expert Desmarais & Gagné AI, construite avec Streamlit. Elle intègre l'API Anthropic Claude pour des conversations expertes et la recherche web intégrée.
 
 ## Fonctionnalités
 
-*   Dialogue interactif avec un expert IA spécialisé (Anthropic Claude) dans la construction au Québec.
+*   Dialogue interactif avec un expert IA spécialisé (Anthropic Claude) dans la fabrication métallique.
 *   **Recherche Web Intégrée:** Utilisez la commande `/search [votre requête]` pour obtenir des informations via la recherche web intégrée de Claude.
-*   **Sélection de Profils:** Choisissez parmi différents profils d'experts (ex: Entrepreneur Général) pour adapter les réponses de Claude.
+*   **Sélection de Profils:** Choisissez parmi différents profils d'experts (Expert en Fabrication Métallique, Expert en Soudure, etc.) pour adapter les réponses de Claude.
 *   **Analyse de Documents:** Téléversez et analysez divers formats de fichiers (PDF, DOCX, CSV, TXT) et d'images (JPG, PNG, WEBP). L'expert Claude fournit des résumés, analyses et recommandations.
 *   **Historique Persistant:** Sauvegarde et chargement des conversations via une base de données SQLite locale (`conversations.db`).
 *   **Export HTML:** Générez un rapport HTML autonome de la conversation en cours, incluant les messages utilisateur, les réponses de l'expert et les résultats de recherche web synthétisés.

@@ -76,8 +76,8 @@ def display_login_or_app():
 
     # Configuration de la page
     st.set_page_config(
-        page_title="Connexion - Constructo AI",
-        page_icon="🏗️",  # Icône de construction 
+        page_title="Connexion - Desmarais & Gagné AI",
+        page_icon="🏭",  # Icône d'usine pour mieux représenter la fabrication métallique
         layout="wide",
         initial_sidebar_state="collapsed"
     )
@@ -114,47 +114,47 @@ def display_login_or_app():
         # --- Texte principal centré ---
         st.markdown("""
             <div style='text-align: center;'>
-                <h3>Constructo AI - La plateforme intelligente Open Source qui révolutionne vos projets de construction au Québec.</h3>
-                <p>Bénéficiez d'estimations précises, d'un suivi intelligent et d'une conformité réglementaire garantie grâce à notre technologie d'IA avancée.</p>
+                <h3>Desmarais & Gagné - La plateforme intelligente qui révolutionne vos projets de fabrication métallique.</h3>
+                <p>Bénéficiez d'expertise en fabrication métallique, soudure et transformation de métal grâce à notre technologie d'IA avancée.</p>
             </div>
         """, unsafe_allow_html=True)
         # --- FIN MODIFICATION ---
 
         st.divider()
         st.markdown("<h2 style='text-align: center;'>Notre mission</h2>", unsafe_allow_html=True)
-        st.markdown("<h3 style='text-align: center; font-weight: normal;'>Révolutionner l'industrie de la construction</h3>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Notre objectif est de fournir des outils intelligents et précis pour optimiser vos projets de construction</p>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; font-weight: normal;'>Excellence en fabrication métallique depuis quatre décennies</h3>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Notre objectif est de fournir des solutions complètes de qualité pour tous vos besoins en fabrication métallique</p>", unsafe_allow_html=True)
         st.markdown(" ")
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.markdown("#### ⚡ Innovation IA")
-            st.markdown("Utilisation de l'Intelligence Artificielle pour fournir des estimations et des recommandations pertinentes.")
+            st.markdown("#### ⚡ Expertise métallique")
+            st.markdown("Utilisation de l'Intelligence Artificielle pour fournir une expertise en fabrication métallique, poinçonnage, coupage et assemblage.")
         with col2:
-            st.markdown("#### 📄 Expertise Construction")
-            st.markdown("Une équipe passionnée avec plus de 20 ans d'expérience dans le secteur de la construction au Québec.")
+            st.markdown("#### 📄 Solutions personnalisées")
+            st.markdown("Une équipe passionnée avec plus de 40 ans d'expérience dans le secteur de la fabrication métallique.")
         with col3:
-            st.markdown("#### 🛡️ Conformité Réglementaire")
-            st.markdown("Conformité stricte aux normes et règles de la construction au Québec.")
+            st.markdown("#### 🛡️ Qualité supérieure")
+            st.markdown("Conformité stricte aux normes de qualité et certifications (ISO 9001, CWB et soudure robotisée).")
         st.markdown(" ")
 
         # --- Section Solutions Clés ---
         st.divider()
-        st.markdown("<h2 style='text-align: center;'>Nos Solutions IA Clés</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center;'>Nos Solutions Clés</h2>", unsafe_allow_html=True)
         st.markdown(" ") # Espace
 
         feat_col1, feat_col2, feat_col3, feat_col4 = st.columns(4, gap="medium")
         with feat_col1:
-            st.markdown("### 🚀 TakeOff AI")
-            st.markdown("Automatisation du calcul des quantités et de l'estimation à l'aide d'une IA avancée pour analyser les plans et les documents de construction.")
+            st.markdown("### 🔧 Fabrication métallique")
+            st.markdown("Solutions complètes et de qualité pour tous besoins en poinçonnage, coupage, découpage à froid et pliage hydraulique.")
         with feat_col2:
-            st.markdown("### 📊 Project Manager AI")
-            st.markdown("Système de gestion de projet alimenté par l'IA qui prédit les retards, optimise les calendriers et gère les ressources de manière efficace.")
+            st.markdown("### 🔥 Expertise en soudure")
+            st.markdown("Soudure MIG, TIG, par points et robotisée sur acier, aluminium et autres matériaux soudables.")
         with feat_col3:
-            st.markdown("### 📦 Inventory AI")
-            st.markdown("Système intelligent de gestion des stocks avec commandes prédictives et capacités de suivi en temps réel.")
+            st.markdown("### 🚚 Diables DG-600")
+            st.markdown("Diables en aluminium ultralégers et robustes avec accessoires pour diverses applications.")
         with feat_col4:
-            st.markdown("### 📝 Notes AI")
-            st.markdown("Système intelligent de prise de notes qui organise les observations sur le site, les rapports de sécurité et la documentation du projet.")
+            st.markdown("### 🏗️ Environnements contrôlés")
+            st.markdown("Conception et fabrication de cabines insonorisées et bâtiments modulaires préfabriqués.")
         st.markdown(" ") # Espace
         # --- FIN Section Solutions Clés ---
 
@@ -162,66 +162,66 @@ def display_login_or_app():
         # --- Section Fonctionnalités Détaillées ---
         st.divider()
         st.markdown("<p style='text-align: center; text-transform: uppercase; color: var(--text-color-light);'>Fonctionnalités Détaillées</p>", unsafe_allow_html=True)
-        st.markdown("<h2 style='text-align: center;'>La plateforme intelligente pour la construction au Québec</h2>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Gagnez du temps et réduisez vos coûts grâce à notre IA conçue pour la construction au Québec. Une plateforme complète pour estimer et optimiser vos projets.</p>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center;'>La plateforme intelligente pour la fabrication métallique</h2>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Gagnez du temps et optimisez vos projets grâce à notre IA conçue pour la fabrication métallique. Une plateforme complète pour vous assister dans vos besoins.</p>", unsafe_allow_html=True)
         st.markdown(" ")
         fcol1, fcol2, fcol3 = st.columns(3)
         with fcol1:
             st.markdown("#### 🧑‍🤝‍🧑 Espaces de travail collaboratif")
-            st.markdown("Collaborez efficacement avec vos équipes, partagez et gérez vos devis en un seul endroit.")
+            st.markdown("Collaborez efficacement avec vos équipes, partagez et gérez vos informations en un seul endroit.")
         with fcol2:
-            st.markdown("#### 💡 AI Estimations")
-            st.markdown("Obtenez des estimations de coûts en quelques secondes sur la base des données actuelles du marché.")
+            st.markdown("#### 💡 AI Assistance")
+            st.markdown("Obtenez des informations techniques en quelques secondes sur la base de notre expertise interne.")
         with fcol3:
-            st.markdown("#### 💬 Assistant de construction")
-            st.markdown("Un assistant IA spécialisé dans la réponse à vos questions techniques et réglementaires en temps réel.")
+            st.markdown("#### 💬 Assistant spécialisé")
+            st.markdown("Un assistant IA spécialisé en fabrication métallique répondant à vos questions techniques en temps réel.")
         st.markdown(" ")
         fcol4, fcol5, fcol6 = st.columns(3)
         with fcol4:
-            st.markdown("#### ✅ Conformité RBQ")
-            st.markdown("Assurez la conformité de vos projets aux normes québécoises grâce à notre vérification automatique.")
+            st.markdown("#### ✅ Conformité aux normes")
+            st.markdown("Assurez la conformité de vos projets aux normes de qualité grâce à notre vérification automatique.")
         with fcol5:
             st.markdown("#### 📖 Documentation technique")
-            st.markdown("Base de connaissances complète sur les normes et règlements de construction du Québec.")
+            st.markdown("Base de connaissances complète sur nos produits et services de fabrication métallique.")
         with fcol6:
-            st.markdown("#### 💰 Analyse financière")
-            st.markdown("Outils d'analyse et d'optimisation des coûts basés sur les données actuelles du marché québécois.")
+            st.markdown("#### 💰 Analyse technique")
+            st.markdown("Outils d'analyse et d'optimisation des processus basés sur notre expertise en fabrication métallique.")
         st.markdown(" ")
         fcol7, fcol8, fcol9 = st.columns(3)
         with fcol7:
-            st.markdown("#### ⏱️ Mises à jour quotidiennes")
-            st.markdown("Mises à jour quotidiennes pour mieux estimer vos projets, vos équipes et les changements réglementaires.")
+            st.markdown("#### ⏱️ Réponses rapides")
+            st.markdown("Obtenez des informations précises et rapides pour mieux planifier vos projets de fabrication.")
         with fcol8:
             st.markdown("#### 📄 Exportation facile")
-            st.markdown("Exportez vos devis au format PDF en un seul clic.")
+            st.markdown("Exportez vos conversations au format PDF en un seul clic.")
         with fcol9:
             st.markdown("#### 📈 Analyse")
-            st.markdown("Analysez vos devis et plans tout au long du processus de construction (fichiers Excel et PDF).")
+            st.markdown("Analysez vos documents et plans techniques (fichiers PDF, DOCX, CSV et images).")
 
         # --- SECTION Certifications et expertise ---
         st.divider()
         st.markdown("<h2 style='text-align: center;'>Certifications et expertise</h2>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Constructo AI se conforme aux principales certifications du secteur de la construction au Québec</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Desmarais & Gagné se conforme aux principales certifications du secteur de la fabrication métallique</p>", unsafe_allow_html=True)
         st.markdown(" ")
 
         # Créer 3 lignes de 2 colonnes pour les certifications
         reg_col1, reg_col2 = st.columns(2, gap="medium")
         with reg_col1:
             with st.container(): # Utiliser st.container pour potentiellement styler comme une carte
-                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 Certifications RBQ</p>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 Certification ISO 9001</p>", unsafe_allow_html=True)
         with reg_col2:
             with st.container():
-                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 Code du Bâtiment du Québec</p>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 Certification CWB</p>", unsafe_allow_html=True)
 
         st.markdown(" ") # Espace vertical
 
         reg_col3, reg_col4 = st.columns(2, gap="medium")
         with reg_col3:
             with st.container():
-                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 CNB Normes nationales</p>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 Certification Soudure Robotisée</p>", unsafe_allow_html=True)
         with reg_col4:
             with st.container():
-                st.markdown("<p style='text-align: center; font-weight: 500;'>📄 Expertise en estimation de projets</p>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; font-weight: 500;'>📄 Expertise en fabrication sur mesure</p>", unsafe_allow_html=True)
 
         # --- FIN SECTION Certifications ---
 
@@ -231,9 +231,9 @@ def display_login_or_app():
         st.markdown("<p style='text-align: center;'>N'hésitez pas à nous contacter pour toute question ou information supplémentaire.</p>", unsafe_allow_html=True)
         st.markdown(" ") # Espace
         st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Pour plus d'informations, n'hésitez pas à nous contacter</p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; font-weight: 500;'>📧 <a href='mailto:info@constructo-ai.qc.ca'>info@constructo-ai.qc.ca</a></p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; font-weight: 500;'>🌐 <a href='https://www.constructo-ai.qc.ca' target='_blank'>https://www.constructo-ai.qc.ca</a></p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; font-weight: 500;'>📞 Tél.: 450 123-4567</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: 500;'>📧 <a href='mailto:info@dg-inc.qc.ca'>info@dg-inc.qc.ca</a></p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: 500;'>🌐 <a href='https://www.dg-inc.qc.ca' target='_blank'>https://www.dg-inc.qc.ca</a></p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: 500;'>📞 Tél.: 450 372-9630</p>", unsafe_allow_html=True)
         # --- FIN SECTION CONTACT ---
 
         # >>>>> FIN DU CONTENU STATIQUE CENTRÉ 
@@ -285,8 +285,8 @@ if not display_login_or_app():
 
 # --- Configuration de la Page Principale ---
 st.set_page_config(
-    page_title="Constructo AI",
-    page_icon="🏗️",  # Icône de construction
+    page_title="Desmarais & Gagné AI",
+    page_icon="🏭",  # Icône d'usine pour mieux représenter la fabrication métallique
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -423,7 +423,7 @@ def generate_html_report(messages, profile_name, conversation_id=None, client_na
         else:
              messages_html += f'<div class="stChatMessage other-bubble"><strong>{html.escape(role.capitalize())} :</strong><div class="msg-content">{content_html}</div></div>\n'
 
-    html_output = f"""<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rapport Constructo AI - {html.escape(profile_name)}{conv_id_display}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"><style>{custom_css} body{{padding:20px;background-color:var(--background-color,#F9FAFB);max-width:1200px;margin:20px auto;box-shadow:0 2px 10px rgba(0,0,0,.1);border-radius:8px}}.search-bubble{{background-color:#F0FDF4;border:1px solid #BBF7D0;color:#14532D;padding:.8rem 1.2rem;margin-bottom:1rem;border-radius:var(--border-radius-md);box-shadow:var(--box-shadow-sm);line-height:1.6}}.search-bubble .msg-content p,.search-bubble .msg-content ul,.search-bubble .msg-content ol{{color:#14532D}}.other-bubble{{background-color:#FEFCE8;border:1px solid #FEF08A}}.report-header h1{{text-align:center;color:var(--primary-color,#00A971);font-size:1.8rem;margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid var(--primary-color,#00A971)}}.report-info{{margin-bottom:25px;padding:10px;background-color:var(--border-color-light,#F3F4F6);border-radius:var(--border-radius-sm);font-size:.9rem;color:var(--text-color-light,#6B7280)}}.report-info p{{margin:3px 0}}section[data-testid=stSidebar],div[data-testid=stChatInput],.stButton{{display:none!important}}.msg-content table{{font-size:.9em}}.msg-content th,.msg-content td{{padding:6px 9px}}.msg-content pre{{font-size:.85rem}}</style></head><body><div class="report-header"><h1>Rapport Constructo AI</h1></div><div class="report-info"><p><strong>Expert :</strong> {html.escape(profile_name)}</p>{client_display}<p><strong>Date :</strong> {now}</p><p><strong>ID Conversation :</strong> {html.escape(str(conversation_id)) if conversation_id else 'N/A'}</p></div><div class="conversation-history">{messages_html}</div></body></html>"""
+    html_output = f"""<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rapport Desmarais & Gagné AI - {html.escape(profile_name)}{conv_id_display}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"><style>{custom_css} body{{padding:20px;background-color:var(--background-color,#F9FAFB);max-width:1200px;margin:20px auto;box-shadow:0 2px 10px rgba(0,0,0,.1);border-radius:8px}}.search-bubble{{background-color:#F0FDF4;border:1px solid #BBF7D0;color:#14532D;padding:.8rem 1.2rem;margin-bottom:1rem;border-radius:var(--border-radius-md);box-shadow:var(--box-shadow-sm);line-height:1.6}}.search-bubble .msg-content p,.search-bubble .msg-content ul,.search-bubble .msg-content ol{{color:#14532D}}.other-bubble{{background-color:#FEFCE8;border:1px solid #FEF08A}}.report-header h1{{text-align:center;color:var(--primary-color,#00A971);font-size:1.8rem;margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid var(--primary-color,#00A971)}}.report-info{{margin-bottom:25px;padding:10px;background-color:var(--border-color-light,#F3F4F6);border-radius:var(--border-radius-sm);font-size:.9rem;color:var(--text-color-light,#6B7280)}}.report-info p{{margin:3px 0}}section[data-testid=stSidebar],div[data-testid=stChatInput],.stButton{{display:none!important}}.msg-content table{{font-size:.9em}}.msg-content th,.msg-content td{{padding:6px 9px}}.msg-content pre{{font-size:.85rem}}</style></head><body><div class="report-header"><h1>Rapport Desmarais & Gagné AI</h1></div><div class="report-info"><p><strong>Expert :</strong> {html.escape(profile_name)}</p>{client_display}<p><strong>Date :</strong> {now}</p><p><strong>ID Conversation :</strong> {html.escape(str(conversation_id)) if conversation_id else 'N/A'}</p></div><div class="conversation-history">{messages_html}</div></body></html>"""
     return html_output
 
 # --- Helper Functions (Application Logic) ---
@@ -439,9 +439,9 @@ def start_new_consultation():
     # Ajouter le message d'accueil
     st.session_state.messages.append({
         "role": "assistant",
-        "content": f"Bonjour! Je suis votre expert {profile_name} de Constructo AI. Comment puis-je vous aider aujourd'hui?\n\n"
+        "content": f"Bonjour! Je suis votre expert {profile_name} de Desmarais & Gagné. Comment puis-je vous aider aujourd'hui?\n\n"
                   f"Pour effectuer une recherche web, tapez simplement `/search votre question`\n"
-                  f"Exemple: `/search normes construction Québec`"
+                  f"Exemple: `/search normes soudure aluminium`"
     })
     if 'html_download_data' in st.session_state: del st.session_state.html_download_data
     if "files_to_analyze" in st.session_state: del st.session_state.files_to_analyze
@@ -514,12 +514,12 @@ with st.sidebar:
     try:
         logo_path = os.path.join(os.path.dirname(__file__), "assets", "logo.png")
         if os.path.exists(logo_path):
-            # Modification pour centrer le logo et le texte "Constructo AI" dans la sidebar
+            # Modification pour centrer le logo et le texte "Desmarais & Gagné AI" dans la sidebar
             st.markdown(
                 f"""
                 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; margin-bottom: 1rem;">
                     <img src="data:image/png;base64,{get_image_base64(logo_path)}" style="width: 150px; height: auto; margin-bottom: 0.5rem;">
-                    <span style="color: #00A971; font-size: 1.5rem; font-weight: 500;">Constructo AI</span>
+                    <span style="color: #00A971; font-size: 1.5rem; font-weight: 500;">Desmarais & Gagné AI</span>
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -595,11 +595,11 @@ with st.sidebar:
     else:
          st.error("Module Expert non initialisé.")
 
-    # --- Plans Techniques ---
-    st.markdown('<div class="sidebar-subheader">📐 PLANS TECHNIQUES</div>', unsafe_allow_html=True)
+    # --- Dessins Techniques ---
+    st.markdown('<div class="sidebar-subheader">📐 DESSINS TECHNIQUES</div>', unsafe_allow_html=True)
     uploaded_sketch = st.file_uploader(
-        "Téléverser un plan technique:",
-        type=["jpg", "jpeg", "png", "pdf"], 
+        "Téléverser un croquis technique:",
+        type=["jpg", "jpeg", "png"], 
         key="sketch_uploader",
         label_visibility="collapsed"
     )
@@ -608,14 +608,14 @@ with st.sidebar:
     is_drawing_disabled = not bool(uploaded_sketch)
 
     # Afficher le bouton d'analyse
-    if st.button("📏 Générer estimation", 
+    if st.button("📏 Générer vues orthogonales", 
                 key="generate_views_button", 
                 use_container_width=True, 
                 disabled=is_drawing_disabled):
         # Cette partie ne s'exécute que si le bouton est cliqué ET n'était PAS désactivé
         if not is_drawing_disabled:
             sketch_name = uploaded_sketch.name
-            user_drawing_prompt = f"J'ai téléversé un plan technique '{sketch_name}' pour analyse et génération d'estimation."
+            user_drawing_prompt = f"J'ai téléversé un croquis technique '{sketch_name}' pour analyse et génération de vues orthogonales."
             action_id = f"technical_drawing_{datetime.now().isoformat()}"
             
             # Stocker le croquis à analyser DANS l'état de session
@@ -633,9 +633,9 @@ with st.sidebar:
         Pour effectuer une recherche web via Claude:
 
         1. Tapez `/search` suivi de votre question ou requête
-        2. Exemple: `/search normes construction Québec`
+        2. Exemple: `/search normes soudure aluminium`
         3. Pour rechercher des informations sur un site spécifique:
-           `/search code du bâtiment site:rbq.gouv.qc.ca`
+           `/search règlement fabrication site:iso.org`
         4. Attendez quelques secondes pour les résultats
 
         **Remarque:** Pour obtenir les meilleurs résultats, formulez des questions précises et utilisez des mots-clés pertinents.
@@ -680,7 +680,7 @@ with st.sidebar:
                         html_string = generate_html_report(st.session_state.messages, profile_name, conv_id, client_name_export)
                         if html_string:
                             id_part = f"Conv{conv_id}" if conv_id else datetime.now().strftime('%Y%m%d_%H%M')
-                            filename = f"Rapport_Constructo_{id_part}.html"
+                            filename = f"Rapport_DG_{id_part}.html"
                             st.session_state.html_download_data = {"data": html_string, "filename": filename}
                             st.success("Rapport prêt.")
                         else: st.error("Échec génération HTML.")
@@ -690,15 +690,15 @@ with st.sidebar:
         download_info = st.session_state.html_download_data
         st.download_button(label="⬇️ Télécharger HTML", data=download_info["data"].encode("utf-8"), file_name=download_info["filename"], mime="text/html", key="dl_html", use_container_width=True, on_click=lambda: st.session_state.update(html_download_data=None))
 
-    # Ajout d'un bouton dans la sidebar pour les fichiers HTML des estimations
+    # Ajout d'un bouton dans la sidebar pour les fichiers HTML des dessins techniques
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
-    st.markdown('<div class="sidebar-subheader">📐 ESTIMATIONS</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-subheader">📐 VUES ORTHOGONALES</div>', unsafe_allow_html=True)
 
     # Vérifier si des données HTML de dessin technique sont disponibles
     if 'drawing_html_data' in st.session_state and st.session_state.get('drawing_html_data'):
         download_info = st.session_state.drawing_html_data
         st.download_button(
-            label="⬇️ Télécharger Estimation", 
+            label="⬇️ Télécharger Vues Orthogonales", 
             data=download_info["data"].encode("utf-8"), 
             file_name=download_info["filename"], 
             mime="text/html", 
@@ -706,22 +706,22 @@ with st.sidebar:
             use_container_width=True
         )
     else:
-        st.caption("Aucune estimation générée dans cette session.")
+        st.caption("Aucun dessin technique analysé dans cette session.")
 
     # --- Liens Resources ---
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
     st.markdown('<div class="sidebar-subheader">🔗 DOCUMENTS ET RESSOURCES</div>', unsafe_allow_html=True)
     resource_links = {
-        "CODE DU BÂTIMENT": "https://www.rbq.gouv.qc.ca/domaines-dintervention/batiment/la-reglementation/chapitre-batiment-du-code-de-securite/",
-        "NORMES CONSTRUCTION": "https://www.rbq.gouv.qc.ca/domaines-dintervention/batiment/repertoire-des-normes-et-documents/",
-        "RBQ": "https://www.rbq.gouv.qc.ca/",
-        "EXEMPLES DE PROJETS": "https://www.constructo-ai.qc.ca/portfolio",
-        "GUIDE D'UTILISATION": "https://www.constructo-ai.qc.ca/guide"
+        "CATALOGUE PRODUITS": "https://www.dg-inc.qc.ca/products",
+        "FICHES TECHNIQUES": "https://www.dg-inc.qc.ca/fiches",
+        "CERTIFICATIONS": "https://www.dg-inc.qc.ca/qualite",
+        "PORTFOLIO PROJETS": "https://www.dg-inc.qc.ca/portfolio",
+        "GUIDE D'UTILISATION": "https://www.dg-inc.qc.ca/guide"
     }
     for resource_name, link_url in resource_links.items():
         if link_url and link_url != "#" and link_url.strip(): st.markdown(f"*   [{resource_name}]({link_url})")
         else: st.markdown(f"*   {resource_name} *(Lien non disponible)*")
-    st.caption("Propriété intellectuelle de Constructo AI. info@constructo-ai.qc.ca")
+    st.caption("Propriété intellectuelle de Desmarais & Gagné. info@dg-inc.qc.ca")
 
     # --- Bouton Déconnexion ---
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
@@ -743,10 +743,10 @@ with main_container:
     # Titre dynamique
     if 'expert_advisor' in st.session_state:
         current_profile = st.session_state.expert_advisor.get_current_profile()
-        profile_name = "Assistant Constructo AI"; profile_name = current_profile.get('name', profile_name) if current_profile else profile_name
+        profile_name = "Assistant Desmarais & Gagné AI"; profile_name = current_profile.get('name', profile_name) if current_profile else profile_name
         st.title(f"Assistant: {profile_name}")
         if not current_profile or current_profile.get('id') == 'default_expert': st.markdown("*Profil expert par défaut actif.*")
-    else: st.title("Assistant Constructo AI"); st.markdown("*Erreur: Module expert non initialisé.*")
+    else: st.title("Assistant Desmarais & Gagné AI"); st.markdown("*Erreur: Module expert non initialisé.*")
     st.divider()
 
     # Affichage du chat (le contenu statique est géré dans la page de login)
@@ -755,16 +755,16 @@ with main_container:
          prof_name = profile.get('name', 'par défaut') if profile else "par défaut"
          st.session_state.messages.append({
              "role": "assistant",
-             "content": f"Bonjour! Je suis votre expert {prof_name} de Constructo AI. Comment puis-je vous aider aujourd'hui?\n\n"
+             "content": f"Bonjour! Je suis votre expert {prof_name} de Desmarais & Gagné. Comment puis-je vous aider aujourd'hui?\n\n"
                         f"Pour effectuer une recherche web, tapez simplement `/search votre question`\n"
-                        f"Exemple: `/search normes construction Québec`"
+                        f"Exemple: `/search normes soudure aluminium`"
          })
 
     # Boucle d'affichage des messages
     for message in st.session_state.messages:
         role = message.get("role", "unknown"); content = message.get("content", "*Message vide*")
         if role == "system": continue
-        avatar = "👤" if role == "user" else "🏗️" if role == "assistant" else "🔎" if role == "search_result" else "🤖"
+        avatar = "👤" if role == "user" else "🏭" if role == "assistant" else "🔎" if role == "search_result" else "🤖"
         with st.chat_message(role, avatar=avatar):
             display_content = str(content) if not isinstance(content, str) else content
             # Utiliser unsafe_allow_html=True peut être risqué si le contenu vient d'une source non sûre
@@ -820,7 +820,7 @@ if action_to_process and action_to_process.get("role") == "user":
     if is_analysis_request:
         # --- Logique Analyse Fichiers ---
         # Les st.write de debug ont été retirés ici
-        with st.chat_message("assistant", avatar="🏗️"):
+        with st.chat_message("assistant", avatar="🏭"):
             with st.spinner("Analyse des fichiers..."):
                 try:
                     # Utiliser les fichiers stockés dans st.session_state.files_to_analyze
@@ -851,24 +851,24 @@ if action_to_process and action_to_process.get("role") == "user":
         st.rerun() # Rerun après l'analyse (succès ou échec)
 
     elif is_drawing_request:
-        # --- Logique Analyse Plan Technique ---
-        with st.chat_message("assistant", avatar="🏗️"):
-            with st.spinner("Analyse du plan technique en cours..."):
+        # --- Logique Analyse Dessin Technique ---
+        with st.chat_message("assistant", avatar="🏭"):
+            with st.spinner("Analyse du croquis technique en cours..."):
                 try:
-                    # Appel à la fonction d'analyse de plan
+                    # Appel à la fonction d'analyse de dessin
                     drawing_response = st.session_state.expert_advisor.process_technical_drawing_with_claude(sketch_for_analysis)
                     
                     if drawing_response.get("status") == "success":
                         analysis_text = drawing_response.get("analysis", "Analyse non disponible.")
                         html_content = drawing_response.get("html_content", "")
-                        sketch_name = drawing_response.get("sketch_name", "plan")
+                        sketch_name = drawing_response.get("sketch_name", "croquis")
                         
                         # Afficher l'analyse textuelle
                         st.markdown(analysis_text, unsafe_allow_html=False)
                         
                         # Ajouter le HTML aux données de session pour téléchargement
                         if html_content:
-                            html_filename = f"Estimation_{sketch_name.split('.')[0]}.html"
+                            html_filename = f"Vues_Orthogonales_{sketch_name.split('.')[0]}.html"
                             st.session_state.drawing_html_data = {
                                 "data": html_content,
                                 "filename": html_filename
@@ -876,11 +876,11 @@ if action_to_process and action_to_process.get("role") == "user":
                             
                             # Ajouter un bouton de téléchargement
                             st.download_button(
-                                label="📥 Télécharger l'estimation (HTML)",
+                                label="📥 Télécharger les vues orthogonales (HTML)",
                                 data=html_content.encode("utf-8"),
                                 file_name=html_filename,
                                 mime="text/html",
-                                key="download_html_estimation"
+                                key="download_html_views"
                             )
                             
                             # Extraire les SVG si disponibles
@@ -888,20 +888,20 @@ if action_to_process and action_to_process.get("role") == "user":
                             svg_matches = re.findall(r'(<svg[\s\S]*?<\/svg>)', analysis_text)
                             
                             if svg_matches:
-                                st.markdown("### Estimation graphique")
-                                cols = st.columns(min(2, len(svg_matches)))
-                                view_titles = ["Estimation des matériaux", "Estimation des coûts"]
+                                st.markdown("### Vues Orthogonales Générées")
+                                cols = st.columns(min(3, len(svg_matches)))
+                                view_titles = ["Vue de Face", "Vue de Côté", "Vue de Dessus"]
                                 
-                                for i, (svg, col) in enumerate(zip(svg_matches[:2], cols)):
+                                for i, (svg, col) in enumerate(zip(svg_matches[:3], cols)):
                                     with col:
                                         st.markdown(f"**{view_titles[i]}**")
                                         st.components.v1.html(svg, height=300)
                         
                         # Stocker la réponse dans l'historique des messages
                         st.session_state.messages.append({"role": "assistant", "content": analysis_text})
-                        st.success("Estimation terminée.")
+                        st.success("Analyse technique terminée.")
                     else:
-                        error_msg = drawing_response.get("message", "Une erreur s'est produite lors de l'analyse du plan.")
+                        error_msg = drawing_response.get("message", "Une erreur s'est produite lors de l'analyse du croquis.")
                         st.error(error_msg)
                         st.session_state.messages.append({"role": "assistant", "content": f"Désolé, {error_msg}"})
                     
@@ -910,7 +910,7 @@ if action_to_process and action_to_process.get("role") == "user":
                         del st.session_state.sketch_to_analyze
                         
                 except Exception as e:
-                    error_msg = f"Erreur durant l'analyse du plan technique: {e}"
+                    error_msg = f"Erreur durant l'analyse du croquis technique: {e}"
                     st.error(error_msg)
                     st.exception(e)
                     st.session_state.messages.append({"role": "assistant", "content": f"Désolé, une erreur s'est produite lors de l'analyse: {type(e).__name__}"})
@@ -962,7 +962,7 @@ if action_to_process and action_to_process.get("role") == "user":
 
     else: # Traiter comme chat normal
         # --- Logique Réponse Claude ---
-        with st.chat_message("assistant", avatar="🏗️"):
+        with st.chat_message("assistant", avatar="🏭"):
             placeholder = st.empty()
             with st.spinner("L'expert réfléchit..."):
                 try:

@@ -2,9 +2,9 @@
 
 /* --- Variables CSS (optionnel mais recommandé pour la cohérence) --- */
 :root {
-    --primary-color: #3B82F6; /* Correspond à config.toml */
-    --primary-color-darker: #2563EB;
-    --primary-color-darkest: #1D4ED8;
+    --primary-color: #00A971; /* Vert Desmarais & Gagné */
+    --primary-color-darker: #008C5E;
+    --primary-color-darkest: #00724C;
     --background-color: #F9FAFB; /* Correspond à config.toml */
     --secondary-background-color: #FFFFFF; /* Correspond à config.toml */
     --text-color: #374151; /* Correspond à config.toml */
@@ -152,7 +152,7 @@ section[data-testid="stSidebar"] hr {
 }
 .stFileUploader:hover {
     border-color: var(--primary-color);
-    background-color: #EFF6FF; /* Bleu très très pâle */
+    background-color: #E6F7F1; /* Vert très pâle au survol */
 }
 .stFileUploader label { /* Texte "Drag and drop..." */
     color: var(--text-color-light);
@@ -170,8 +170,8 @@ section[data-testid="stSidebar"] hr {
      margin-top: 0.8rem; /* Espace au-dessus */
 }
 .stFileUploader section[data-testid="stFileUploadDropzone"] button:hover {
-    background-color: #DBEAFE; /* Bleu encore plus pâle */
-    border-color: #60A5FA;
+    background-color: #E6F7F1; /* Vert très pâle au survol */
+    border-color: #00C382;
 }
 /* Liste des fichiers uploadés */
 .stFileUploader [data-testid="stFileUploaderFile"] {
@@ -253,7 +253,7 @@ div[data-testid="stChatInput"] textarea {
 }
 div[data-testid="stChatInput"] textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); /* Aura de focus */
+    box-shadow: 0 0 0 2px rgba(0, 169, 113, 0.3); /* Aura de focus verte */
 }
 
 /* Placeholder dans l'input */
@@ -297,9 +297,9 @@ div[data-testid="stChatInput"] button:disabled {
 
 /* Message Utilisateur */
 div[data-testid="stChatMessage"]:has(div[data-testid^="chatAvatarIcon-user"]) {
-    background-color: #EFF6FF; /* Bleu très pâle (Tailwind Blue 50) */
+    background-color: #E6F7F1; /* Vert très pâle pour les messages utilisateur */
     /* margin-left: auto; /* Alignement à droite géré par Streamlit */
-    border: 1px solid #DBEAFE; /* Bordure très légère (Blue 100) */
+    border: 1px solid #C2F0E0; /* Bordure légère verte */
     /* border-top-right-radius: 0; /* Optionnel: Casser un coin pour look "bulle" */
 }
 

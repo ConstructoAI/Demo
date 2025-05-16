@@ -4,7 +4,7 @@
 streamlit>=1.30.0
 
 # Claude API client (Expert principal)
-anthropic>=0.51.0  # Version la plus récente avec support complet des tools
+anthropic>=0.51.0  # Mise à jour vers la dernière version
 
 # PDF reading
 PyPDF2>=3.0.0
