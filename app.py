@@ -77,7 +77,7 @@ def display_login_or_app():
     # Configuration de la page
     st.set_page_config(
         page_title="Connexion - Constructo AI",
-        page_icon="🏗️",
+        page_icon="🏗️",  # Icône de construction 
         layout="wide",
         initial_sidebar_state="collapsed"
     )
@@ -137,7 +137,7 @@ def display_login_or_app():
             st.markdown("Conformité stricte aux normes et règles de la construction au Québec.")
         st.markdown(" ")
 
-        # --- Section Solutions IA Clés ---
+        # --- Section Solutions Clés ---
         st.divider()
         st.markdown("<h2 style='text-align: center;'>Nos Solutions IA Clés</h2>", unsafe_allow_html=True)
         st.markdown(" ") # Espace
@@ -156,7 +156,7 @@ def display_login_or_app():
             st.markdown("### 📝 Notes AI")
             st.markdown("Système intelligent de prise de notes qui organise les observations sur le site, les rapports de sécurité et la documentation du projet.")
         st.markdown(" ") # Espace
-        # --- FIN Section Solutions IA ---
+        # --- FIN Section Solutions Clés ---
 
 
         # --- Section Fonctionnalités Détaillées ---
@@ -198,61 +198,43 @@ def display_login_or_app():
             st.markdown("#### 📈 Analyse")
             st.markdown("Analysez vos devis et plans tout au long du processus de construction (fichiers Excel et PDF).")
 
-        # --- SECTION Conformité et réglementation ---
+        # --- SECTION Certifications et expertise ---
         st.divider()
-        st.markdown("<h2 style='text-align: center;'>Conformité et réglementation</h2>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Constructo AI se conforme aux principales organisations du secteur de la construction au Québec</p>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center;'>Certifications et expertise</h2>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Constructo AI se conforme aux principales certifications du secteur de la construction au Québec</p>", unsafe_allow_html=True)
         st.markdown(" ")
 
-        # Créer 3 lignes de 2 colonnes pour les 6 logos/textes
+        # Créer 3 lignes de 2 colonnes pour les certifications
         reg_col1, reg_col2 = st.columns(2, gap="medium")
         with reg_col1:
             with st.container(): # Utiliser st.container pour potentiellement styler comme une carte
-                 st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 Régie du bâtiment du Québec (RBQ)</p>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 Certifications RBQ</p>", unsafe_allow_html=True)
         with reg_col2:
             with st.container():
-                 st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 APCHQ</p>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 Code du Bâtiment du Québec</p>", unsafe_allow_html=True)
 
         st.markdown(" ") # Espace vertical
 
         reg_col3, reg_col4 = st.columns(2, gap="medium")
         with reg_col3:
             with st.container():
-                 st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 ACQ</p>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; font-weight: 500;'>🏢 CNB Normes nationales</p>", unsafe_allow_html=True)
         with reg_col4:
             with st.container():
-                 st.markdown("<p style='text-align: center; font-weight: 500;'>📄 Commission de la construction du Québec</p>", unsafe_allow_html=True)
+                st.markdown("<p style='text-align: center; font-weight: 500;'>📄 Expertise en estimation de projets</p>", unsafe_allow_html=True)
 
-        st.markdown(" ") # Espace vertical
+        # --- FIN SECTION Certifications ---
 
-        reg_col5, reg_col6 = st.columns(2, gap="medium")
-        with reg_col5:
-            with st.container():
-                 st.markdown("<p style='text-align: center; font-weight: 500;'>🎖️ Corporation des maîtres électriciens du Québec</p>", unsafe_allow_html=True)
-        with reg_col6:
-            with st.container():
-                 st.markdown("<p style='text-align: center; font-weight: 500;'>🎖️ Corporation des maîtres mécaniciens en tuyauterie du Québec</p>", unsafe_allow_html=True)
-        # --- FIN SECTION Conformité ---
-
-        # --- NOUVELLE SECTION PAIEMENT ---
+        # --- SECTION CONTACT ---
         st.divider()
-        st.markdown("<h2 style='text-align: center;'>Constructo AI évolue : Fini les abonnements mensuels !</h2>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center;'>Nous sommes heureux de vous annoncer que Constructo AI passe à un système de paiement à l'utilisation (pay as you go).</p>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center;'>Contactez-nous</h2>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center;'>N'hésitez pas à nous contacter pour toute question ou information supplémentaire.</p>", unsafe_allow_html=True)
         st.markdown(" ") # Espace
-        st.markdown("**Ce que cela signifie pour vous :**")
-        st.markdown("""
-        - Plus de flexibilité : payez uniquement ce que vous utilisez
-        - Meilleure maîtrise de vos coûts
-        - Économisez jusqu'à 50% sur vos factures en ne payant que pour vos besoins réels
-        - Fini les frais fixes mensuels pour des fonctionnalités inutilisées
-        """)
-        st.markdown("Avec notre nouveau modèle, vous ne payez que pour les services réellement consommés, vous permettant ainsi d'optimiser votre budget selon vos besoins.")
-        st.markdown(" ") # Espace
-        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Pour plus d'informations sur cette transition ou pour toute question, n'hésitez pas à nous contacter</p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; font-weight: 500;'>📧 <a href='mailto:info@constructoai.ca'>info@constructoai.ca</a></p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; font-weight: 500;'>🌐 <a href='https://constructoai.ca' target='_blank'>https://constructoai.ca</a></p>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; font-weight: 500;'>📞 Sylvain Leduc / (514) 820-1972</p>", unsafe_allow_html=True)
-        # --- FIN NOUVELLE SECTION PAIEMENT ---
+        st.markdown("<p style='text-align: center; color: var(--text-color-light);'>Pour plus d'informations, n'hésitez pas à nous contacter</p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: 500;'>📧 <a href='mailto:info@constructo-ai.qc.ca'>info@constructo-ai.qc.ca</a></p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: 500;'>🌐 <a href='https://www.constructo-ai.qc.ca' target='_blank'>https://www.constructo-ai.qc.ca</a></p>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align: center; font-weight: 500;'>📞 Tél.: 450 123-4567</p>", unsafe_allow_html=True)
+        # --- FIN SECTION CONTACT ---
 
         # >>>>> FIN DU CONTENU STATIQUE CENTRÉ 
 
@@ -261,19 +243,18 @@ def display_login_or_app():
     st.markdown("<h2 style='text-align: center;'>Connexion</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Veuillez entrer le mot de passe pour accéder à l'application.</p>", unsafe_allow_html=True)
 
-    # Obtenir le mot de passe depuis l'environnement ou secrets
-    import os
+    # Utiliser os.environ.get au lieu de st.secrets.get
     correct_password = os.environ.get("APP_PASSWORD")
     if not correct_password:
-        # Essayer d'utiliser st.secrets comme fallback
+        # Fallback vers st.secrets pour le développement local si disponible
         try:
             correct_password = st.secrets.get("APP_PASSWORD")
         except:
             pass
     
     if not correct_password:
-         st.error("Erreur de configuration: Secret 'APP_PASSWORD' non défini.")
-         st.info("Veuillez configurer ce secret dans les variables d'environnement ou dans .streamlit/secrets.toml")
+         st.error("Erreur de configuration: Variable d'environnement 'APP_PASSWORD' non définie.")
+         st.info("Veuillez configurer cette variable.")
          return False
 
     _, login_col, _ = st.columns([1, 1.5, 1])
@@ -305,7 +286,7 @@ if not display_login_or_app():
 # --- Configuration de la Page Principale ---
 st.set_page_config(
     page_title="Constructo AI",
-    page_icon="🏗️",
+    page_icon="🏗️",  # Icône de construction
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -346,14 +327,15 @@ local_css("style.css") # Recharger pour s'assurer que les styles de l'app sont a
 
 # --- Load API Keys ---
 load_dotenv() # Pour le dev local si .env existe
-import os
+# Utiliser os.environ.get au lieu de st.secrets.get
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 if not ANTHROPIC_API_KEY:
-    # Essayer d'utiliser st.secrets comme fallback
+    # Fallback vers st.secrets pour le développement local si disponible
     try:
         ANTHROPIC_API_KEY = st.secrets.get("ANTHROPIC_API_KEY")
     except:
         pass
+
 # Load APP_PASSWORD (if needed elsewhere, otherwise it's loaded in display_login_or_app)
 APP_PASSWORD = os.environ.get("APP_PASSWORD")
 if not APP_PASSWORD:
@@ -405,6 +387,7 @@ if 'conversation_manager' not in st.session_state:
 if "messages" not in st.session_state: st.session_state.messages = []
 if "current_conversation_id" not in st.session_state: st.session_state.current_conversation_id = None
 if "processed_messages" not in st.session_state: st.session_state.processed_messages = set()
+if "drawing_html_data" not in st.session_state: st.session_state.drawing_html_data = None
 
 
 # --- Fonction de Génération HTML ---
@@ -440,7 +423,7 @@ def generate_html_report(messages, profile_name, conversation_id=None, client_na
         else:
              messages_html += f'<div class="stChatMessage other-bubble"><strong>{html.escape(role.capitalize())} :</strong><div class="msg-content">{content_html}</div></div>\n'
 
-    html_output = f"""<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rapport Constructo AI - {html.escape(profile_name)}{conv_id_display}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"><style>{custom_css} body{{padding:20px;background-color:var(--background-color,#F9FAFB);max-width:1200px;margin:20px auto;box-shadow:0 2px 10px rgba(0,0,0,.1);border-radius:8px}}.search-bubble{{background-color:#F0FDF4;border:1px solid #BBF7D0;color:#14532D;padding:.8rem 1.2rem;margin-bottom:1rem;border-radius:var(--border-radius-md);box-shadow:var(--box-shadow-sm);line-height:1.6}}.search-bubble .msg-content p,.search-bubble .msg-content ul,.search-bubble .msg-content ol{{color:#14532D}}.other-bubble{{background-color:#FEFCE8;border:1px solid #FEF08A}}.report-header h1{{text-align:center;color:var(--primary-color,#3B82F6);font-size:1.8rem;margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid var(--primary-color,#3B82F6)}}.report-info{{margin-bottom:25px;padding:10px;background-color:var(--border-color-light,#F3F4F6);border-radius:var(--border-radius-sm);font-size:.9rem;color:var(--text-color-light,#6B7280)}}.report-info p{{margin:3px 0}}section[data-testid=stSidebar],div[data-testid=stChatInput],.stButton{{display:none!important}}.msg-content table{{font-size:.9em}}.msg-content th,.msg-content td{{padding:6px 9px}}.msg-content pre{{font-size:.85rem}}</style></head><body><div class="report-header"><h1>Rapport Constructo AI</h1></div><div class="report-info"><p><strong>Expert :</strong> {html.escape(profile_name)}</p>{client_display}<p><strong>Date :</strong> {now}</p><p><strong>ID Conversation :</strong> {html.escape(str(conversation_id)) if conversation_id else 'N/A'}</p></div><div class="conversation-history">{messages_html}</div></body></html>"""
+    html_output = f"""<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Rapport Constructo AI - {html.escape(profile_name)}{conv_id_display}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"><style>{custom_css} body{{padding:20px;background-color:var(--background-color,#F9FAFB);max-width:1200px;margin:20px auto;box-shadow:0 2px 10px rgba(0,0,0,.1);border-radius:8px}}.search-bubble{{background-color:#F0FDF4;border:1px solid #BBF7D0;color:#14532D;padding:.8rem 1.2rem;margin-bottom:1rem;border-radius:var(--border-radius-md);box-shadow:var(--box-shadow-sm);line-height:1.6}}.search-bubble .msg-content p,.search-bubble .msg-content ul,.search-bubble .msg-content ol{{color:#14532D}}.other-bubble{{background-color:#FEFCE8;border:1px solid #FEF08A}}.report-header h1{{text-align:center;color:var(--primary-color,#00A971);font-size:1.8rem;margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid var(--primary-color,#00A971)}}.report-info{{margin-bottom:25px;padding:10px;background-color:var(--border-color-light,#F3F4F6);border-radius:var(--border-radius-sm);font-size:.9rem;color:var(--text-color-light,#6B7280)}}.report-info p{{margin:3px 0}}section[data-testid=stSidebar],div[data-testid=stChatInput],.stButton{{display:none!important}}.msg-content table{{font-size:.9em}}.msg-content th,.msg-content td{{padding:6px 9px}}.msg-content pre{{font-size:.85rem}}</style></head><body><div class="report-header"><h1>Rapport Constructo AI</h1></div><div class="report-info"><p><strong>Expert :</strong> {html.escape(profile_name)}</p>{client_display}<p><strong>Date :</strong> {now}</p><p><strong>ID Conversation :</strong> {html.escape(str(conversation_id)) if conversation_id else 'N/A'}</p></div><div class="conversation-history">{messages_html}</div></body></html>"""
     return html_output
 
 # --- Helper Functions (Application Logic) ---
@@ -456,12 +439,14 @@ def start_new_consultation():
     # Ajouter le message d'accueil
     st.session_state.messages.append({
         "role": "assistant",
-        "content": f"Bonjour! Je suis votre expert {profile_name}. Comment puis-je vous aider aujourd'hui?\n\n"
+        "content": f"Bonjour! Je suis votre expert {profile_name} de Constructo AI. Comment puis-je vous aider aujourd'hui?\n\n"
                   f"Pour effectuer une recherche web, tapez simplement `/search votre question`\n"
-                  f"Exemple: `/search normes construction Quebec 2025`"
+                  f"Exemple: `/search normes construction Québec`"
     })
     if 'html_download_data' in st.session_state: del st.session_state.html_download_data
     if "files_to_analyze" in st.session_state: del st.session_state.files_to_analyze
+    if "sketch_to_analyze" in st.session_state: del st.session_state.sketch_to_analyze
+    if "drawing_html_data" in st.session_state: del st.session_state.drawing_html_data
     st.rerun()
 
 def load_selected_conversation(conv_id):
@@ -474,6 +459,8 @@ def load_selected_conversation(conv_id):
             st.session_state.processed_messages = set()
             if 'html_download_data' in st.session_state: del st.session_state.html_download_data
             if "files_to_analyze" in st.session_state: del st.session_state.files_to_analyze
+            if "sketch_to_analyze" in st.session_state: del st.session_state.sketch_to_analyze
+            if "drawing_html_data" in st.session_state: del st.session_state.drawing_html_data
             st.success(f"Consultation {conv_id} chargée.")
             st.rerun()
         else:
@@ -532,7 +519,7 @@ with st.sidebar:
                 f"""
                 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; margin-bottom: 1rem;">
                     <img src="data:image/png;base64,{get_image_base64(logo_path)}" style="width: 150px; height: auto; margin-bottom: 0.5rem;">
-                    <span style="color: #3B82F6; font-size: 1.5rem; font-weight: 500;">Constructo AI</span>
+                    <span style="color: #00A971; font-size: 1.5rem; font-weight: 500;">Constructo AI</span>
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -576,16 +563,31 @@ with st.sidebar:
 
     # --- Analyse Fichiers ---
     st.markdown('<div class="sidebar-subheader">📄 ANALYSE FICHIERS</div>', unsafe_allow_html=True)
-    uploaded_files_sidebar = []
+    uploaded_files_sidebar = [] # Initialisation par défaut
     if 'expert_advisor' in st.session_state:
         supported_types = st.session_state.expert_advisor.get_supported_filetypes_flat()
-        uploaded_files_sidebar = st.file_uploader("Téléverser fichiers:", type=supported_types if supported_types else None, accept_multiple_files=True, key="file_uploader_sidebar", label_visibility="collapsed")
-        if uploaded_files_sidebar:
-            if st.button("🔍 Analyser Fichiers", key="analyze_button", use_container_width=True):
+        uploaded_files_sidebar = st.file_uploader(
+            "Téléverser fichiers:",
+            type=supported_types if supported_types else None,
+            accept_multiple_files=True,
+            key="file_uploader_sidebar",
+            label_visibility="collapsed"
+        )
+
+        # Déterminer si le bouton doit être désactivé
+        # bool(...) retourne False pour une liste vide, True sinon.
+        is_disabled = not bool(uploaded_files_sidebar)
+
+        # Afficher le bouton, en utilisant l'état désactivé
+        # Le bouton est maintenant TOUJOURS rendu dans le layout
+        if st.button("🔍 Analyser Fichiers", key="analyze_button", use_container_width=True, disabled=is_disabled):
+            # Cette partie ne s'exécute que si le bouton est cliqué ET n'était PAS désactivé
+            if not is_disabled: # Vérification logique supplémentaire
                 num_files = len(uploaded_files_sidebar)
                 file_names_str = ', '.join([f.name for f in uploaded_files_sidebar])
                 user_analysis_prompt = f"J'ai téléversé {num_files} fichier(s) ({file_names_str}) pour analyse. Peux-tu les examiner ?"
                 action_id = f"analyze_{datetime.now().isoformat()}"
+                # Stocker les fichiers à analyser DANS l'état de session pour les récupérer après le rerun
                 st.session_state.files_to_analyze = uploaded_files_sidebar
                 st.session_state.messages.append({"role": "user", "content": user_analysis_prompt, "id": action_id})
                 save_current_conversation()
@@ -593,19 +595,49 @@ with st.sidebar:
     else:
          st.error("Module Expert non initialisé.")
 
+    # --- Plans Techniques ---
+    st.markdown('<div class="sidebar-subheader">📐 PLANS TECHNIQUES</div>', unsafe_allow_html=True)
+    uploaded_sketch = st.file_uploader(
+        "Téléverser un plan technique:",
+        type=["jpg", "jpeg", "png", "pdf"], 
+        key="sketch_uploader",
+        label_visibility="collapsed"
+    )
+
+    # Déterminer si le bouton doit être désactivé
+    is_drawing_disabled = not bool(uploaded_sketch)
+
+    # Afficher le bouton d'analyse
+    if st.button("📏 Générer estimation", 
+                key="generate_views_button", 
+                use_container_width=True, 
+                disabled=is_drawing_disabled):
+        # Cette partie ne s'exécute que si le bouton est cliqué ET n'était PAS désactivé
+        if not is_drawing_disabled:
+            sketch_name = uploaded_sketch.name
+            user_drawing_prompt = f"J'ai téléversé un plan technique '{sketch_name}' pour analyse et génération d'estimation."
+            action_id = f"technical_drawing_{datetime.now().isoformat()}"
+            
+            # Stocker le croquis à analyser DANS l'état de session
+            st.session_state.sketch_to_analyze = uploaded_sketch
+            st.session_state.messages.append({"role": "user", "content": user_drawing_prompt, "id": action_id})
+            save_current_conversation()
+            st.rerun()
+
+
     # --- Aide Recherche Web (Nouvelle section) ---
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
     st.markdown('<div class="sidebar-subheader">🔎 RECHERCHE WEB</div>', unsafe_allow_html=True)
     with st.expander("Comment utiliser la recherche web"):
         st.markdown("""
         Pour effectuer une recherche web via Claude:
-        
+
         1. Tapez `/search` suivi de votre question ou requête
-        2. Exemple: `/search normes électriques Québec`
+        2. Exemple: `/search normes construction Québec`
         3. Pour rechercher des informations sur un site spécifique:
-           `/search règlement construction site:rbq.gouv.qc.ca`
+           `/search code du bâtiment site:rbq.gouv.qc.ca`
         4. Attendez quelques secondes pour les résultats
-        
+
         **Remarque:** Pour obtenir les meilleurs résultats, formulez des questions précises et utilisez des mots-clés pertinents.
         """)
 
@@ -646,10 +678,9 @@ with st.sidebar:
                         if current_profile: profile_name = current_profile.get('name', 'Expert')
                         conv_id = st.session_state.current_conversation_id
                         html_string = generate_html_report(st.session_state.messages, profile_name, conv_id, client_name_export)
-                        if html_string: 
+                        if html_string:
                             id_part = f"Conv{conv_id}" if conv_id else datetime.now().strftime('%Y%m%d_%H%M')
-                            # Modification du nom de fichier ici
-                            filename = f"Rapport_Constructo_AI_{id_part}.html"
+                            filename = f"Rapport_Constructo_{id_part}.html"
                             st.session_state.html_download_data = {"data": html_string, "filename": filename}
                             st.success("Rapport prêt.")
                         else: st.error("Échec génération HTML.")
@@ -659,20 +690,44 @@ with st.sidebar:
         download_info = st.session_state.html_download_data
         st.download_button(label="⬇️ Télécharger HTML", data=download_info["data"].encode("utf-8"), file_name=download_info["filename"], mime="text/html", key="dl_html", use_container_width=True, on_click=lambda: st.session_state.update(html_download_data=None))
 
-    # --- Liens Programmes ---
+    # Ajout d'un bouton dans la sidebar pour les fichiers HTML des estimations
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
-    st.markdown('<div class="sidebar-subheader">🔗 LOGICIELS WINDOWS ET DOCUMENTS</div>', unsafe_allow_html=True)
-    wetransfer_links = {"TAKEOFF": "https://we.tl/t-2m6p765rVv", "CRM": "https://we.tl/t-vsGuk2AQZO", "REGISTRE DES PROJETS": "https://we.tl/t-VKj2HseTAN", "GESTIONNAIRE D'INVENTAIRE": "https://we.tl/t-K2j2zQYBLx", "FORMULAIRES": "https://we.tl/t-tcXwFRQ6t2", "SMART NOTE": "https://we.tl/t-jYkQMXteMx", "GUIDE DES PROMPTS": "https://we.tl/t-efBWRHP6yG"}
-    for program_name, link_url in wetransfer_links.items():
-        if link_url and link_url != "#" and link_url.strip(): st.markdown(f"*   [{program_name}]({link_url})")
-        else: st.markdown(f"*   {program_name} *(Lien non disponible)*")
-    st.caption("Propriété intellectuelle de Sylvain Leduc. info@constructoai.ca")
+    st.markdown('<div class="sidebar-subheader">📐 ESTIMATIONS</div>', unsafe_allow_html=True)
+
+    # Vérifier si des données HTML de dessin technique sont disponibles
+    if 'drawing_html_data' in st.session_state and st.session_state.get('drawing_html_data'):
+        download_info = st.session_state.drawing_html_data
+        st.download_button(
+            label="⬇️ Télécharger Estimation", 
+            data=download_info["data"].encode("utf-8"), 
+            file_name=download_info["filename"], 
+            mime="text/html", 
+            key="dl_drawing_html", 
+            use_container_width=True
+        )
+    else:
+        st.caption("Aucune estimation générée dans cette session.")
+
+    # --- Liens Resources ---
+    st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
+    st.markdown('<div class="sidebar-subheader">🔗 DOCUMENTS ET RESSOURCES</div>', unsafe_allow_html=True)
+    resource_links = {
+        "CODE DU BÂTIMENT": "https://www.rbq.gouv.qc.ca/domaines-dintervention/batiment/la-reglementation/chapitre-batiment-du-code-de-securite/",
+        "NORMES CONSTRUCTION": "https://www.rbq.gouv.qc.ca/domaines-dintervention/batiment/repertoire-des-normes-et-documents/",
+        "RBQ": "https://www.rbq.gouv.qc.ca/",
+        "EXEMPLES DE PROJETS": "https://www.constructo-ai.qc.ca/portfolio",
+        "GUIDE D'UTILISATION": "https://www.constructo-ai.qc.ca/guide"
+    }
+    for resource_name, link_url in resource_links.items():
+        if link_url and link_url != "#" and link_url.strip(): st.markdown(f"*   [{resource_name}]({link_url})")
+        else: st.markdown(f"*   {resource_name} *(Lien non disponible)*")
+    st.caption("Propriété intellectuelle de Constructo AI. info@constructo-ai.qc.ca")
 
     # --- Bouton Déconnexion ---
     st.markdown('<hr style="margin: 1rem 0; border-top: 1px solid var(--border-color);">', unsafe_allow_html=True)
     if st.button("🚪 Déconnexion", key="logout_button", use_container_width=True):
         st.session_state.logged_in = False
-        keys_to_clear = ["messages", "current_conversation_id", "processed_messages", "html_download_data", "selected_profile_name", "files_to_analyze"]
+        keys_to_clear = ["messages", "current_conversation_id", "processed_messages", "html_download_data", "selected_profile_name", "files_to_analyze", "sketch_to_analyze", "drawing_html_data"]
         for key in keys_to_clear:
              if key in st.session_state: del st.session_state[key]
         # Aussi nettoyer les objets potentiellement lourds ou liés aux clés API
@@ -699,10 +754,10 @@ with main_container:
          profile = st.session_state.expert_advisor.get_current_profile()
          prof_name = profile.get('name', 'par défaut') if profile else "par défaut"
          st.session_state.messages.append({
-             "role": "assistant", 
-             "content": f"Bonjour! Je suis votre expert {prof_name}. Comment puis-je vous aider aujourd'hui?\n\n"
+             "role": "assistant",
+             "content": f"Bonjour! Je suis votre expert {prof_name} de Constructo AI. Comment puis-je vous aider aujourd'hui?\n\n"
                         f"Pour effectuer une recherche web, tapez simplement `/search votre question`\n"
-                        f"Exemple: `/search normes construction Quebec 2025`"
+                        f"Exemple: `/search normes construction Québec`"
          })
 
     # Boucle d'affichage des messages
@@ -740,41 +795,131 @@ if action_to_process and action_to_process.get("role") == "user":
     msg_id = action_to_process.get("id", action_to_process.get("content"))
     st.session_state.processed_messages.add(msg_id)
     user_content = action_to_process.get("content", "")
-    
+
     # Amélioration de la détection de commande search
     is_search_command = False
     search_query = ""
-    
+
     if user_content.strip().lower().startswith("/search "):
         is_search_command = True
         search_query = user_content[len("/search "):].strip()
     elif user_content.strip().lower() == "/search":
         is_search_command = True
         search_query = ""  # Requête vide, à gérer
-    
+
+    # Récupérer les fichiers potentiellement à analyser DEPUIS l'état de session
     files_for_analysis = st.session_state.get("files_to_analyze", [])
+    # Vérifier si l'ID du message correspond à une action d'analyse ET s'il y a des fichiers stockés
     is_analysis_request = action_to_process.get("id", "").startswith("analyze_") and files_for_analysis
+    
+    # Récupérer le croquis potentiellement à analyser DEPUIS l'état de session
+    sketch_for_analysis = st.session_state.get("sketch_to_analyze", None)
+    # Vérifier si l'ID du message correspond à une action d'analyse ET s'il y a un croquis stocké
+    is_drawing_request = action_to_process.get("id", "").startswith("technical_drawing_") and sketch_for_analysis
 
     if is_analysis_request:
         # --- Logique Analyse Fichiers ---
+        # Les st.write de debug ont été retirés ici
         with st.chat_message("assistant", avatar="🏗️"):
             with st.spinner("Analyse des fichiers..."):
                 try:
+                    # Utiliser les fichiers stockés dans st.session_state.files_to_analyze
                     history_context = [m for m in st.session_state.messages[:-1] if m.get("role") != "system"]
+
+                    # Appel à la fonction d'analyse
                     analysis_response, analysis_details = st.session_state.expert_advisor.analyze_documents(files_for_analysis, history_context)
-                    st.markdown(analysis_response, unsafe_allow_html=False)
+
+                    st.markdown(analysis_response, unsafe_allow_html=False) # Afficher la réponse d'analyse
                     st.session_state.messages.append({"role": "assistant", "content": analysis_response})
                     st.success("Analyse terminée.")
-                    if "files_to_analyze" in st.session_state: del st.session_state.files_to_analyze
+
+                    # Nettoyer l'état après traitement pour éviter une nouvelle analyse au prochain rerun
+                    if "files_to_analyze" in st.session_state:
+                        del st.session_state.files_to_analyze
+
                 except Exception as e:
-                    error_msg = f"Erreur analyse: {e}"; st.error(error_msg); st.exception(e)
-                    st.session_state.messages.append({"role": "assistant", "content": f"Erreur analyse: {e}"})
-                    if "files_to_analyze" in st.session_state: del st.session_state.files_to_analyze
+                    # Les st.write de debug ont été retirés ici aussi
+                    error_msg = f"Erreur durant l'analyse des fichiers: {e}"
+                    st.error(error_msg)
+                    st.exception(e)
+                    st.session_state.messages.append({"role": "assistant", "content": f"Désolé, une erreur s'est produite lors de l'analyse: {type(e).__name__}"})
+                    # Nettoyer l'état même en cas d'erreur
+                    if "files_to_analyze" in st.session_state:
+                        del st.session_state.files_to_analyze
+
+        save_current_conversation()
+        st.rerun() # Rerun après l'analyse (succès ou échec)
+
+    elif is_drawing_request:
+        # --- Logique Analyse Plan Technique ---
+        with st.chat_message("assistant", avatar="🏗️"):
+            with st.spinner("Analyse du plan technique en cours..."):
+                try:
+                    # Appel à la fonction d'analyse de plan
+                    drawing_response = st.session_state.expert_advisor.process_technical_drawing_with_claude(sketch_for_analysis)
+                    
+                    if drawing_response.get("status") == "success":
+                        analysis_text = drawing_response.get("analysis", "Analyse non disponible.")
+                        html_content = drawing_response.get("html_content", "")
+                        sketch_name = drawing_response.get("sketch_name", "plan")
+                        
+                        # Afficher l'analyse textuelle
+                        st.markdown(analysis_text, unsafe_allow_html=False)
+                        
+                        # Ajouter le HTML aux données de session pour téléchargement
+                        if html_content:
+                            html_filename = f"Estimation_{sketch_name.split('.')[0]}.html"
+                            st.session_state.drawing_html_data = {
+                                "data": html_content,
+                                "filename": html_filename
+                            }
+                            
+                            # Ajouter un bouton de téléchargement
+                            st.download_button(
+                                label="📥 Télécharger l'estimation (HTML)",
+                                data=html_content.encode("utf-8"),
+                                file_name=html_filename,
+                                mime="text/html",
+                                key="download_html_estimation"
+                            )
+                            
+                            # Extraire les SVG si disponibles
+                            import re
+                            svg_matches = re.findall(r'(<svg[\s\S]*?<\/svg>)', analysis_text)
+                            
+                            if svg_matches:
+                                st.markdown("### Estimation graphique")
+                                cols = st.columns(min(2, len(svg_matches)))
+                                view_titles = ["Estimation des matériaux", "Estimation des coûts"]
+                                
+                                for i, (svg, col) in enumerate(zip(svg_matches[:2], cols)):
+                                    with col:
+                                        st.markdown(f"**{view_titles[i]}**")
+                                        st.components.v1.html(svg, height=300)
+                        
+                        # Stocker la réponse dans l'historique des messages
+                        st.session_state.messages.append({"role": "assistant", "content": analysis_text})
+                        st.success("Estimation terminée.")
+                    else:
+                        error_msg = drawing_response.get("message", "Une erreur s'est produite lors de l'analyse du plan.")
+                        st.error(error_msg)
+                        st.session_state.messages.append({"role": "assistant", "content": f"Désolé, {error_msg}"})
+                    
+                    # Nettoyer l'état après traitement
+                    if "sketch_to_analyze" in st.session_state:
+                        del st.session_state.sketch_to_analyze
+                        
                 except Exception as e:
-                    error_msg = f"Erreur analyse: {e}"; st.error(error_msg); st.exception(e)
-                    st.session_state.messages.append({"role": "assistant", "content": f"Erreur analyse: {e}"})
-                    if "files_to_analyze" in st.session_state: del st.session_state.files_to_analyze
-        save_current_conversation(); st.rerun()
+                    error_msg = f"Erreur durant l'analyse du plan technique: {e}"
+                    st.error(error_msg)
+                    st.exception(e)
+                    st.session_state.messages.append({"role": "assistant", "content": f"Désolé, une erreur s'est produite lors de l'analyse: {type(e).__name__}"})
+                    # Nettoyer l'état même en cas d'erreur
+                    if "sketch_to_analyze" in st.session_state:
+                        del st.session_state.sketch_to_analyze
+        
+        save_current_conversation()
+        st.rerun() # Rerun après l'analyse (succès ou échec)
 
     elif is_search_command:
         # --- Logique Recherche Web Simplifiée ---
@@ -793,15 +938,17 @@ if action_to_process and action_to_process.get("role") == "user":
                     try:
                         # Appel direct à la fonction de recherche
                         search_result = st.session_state.expert_advisor.perform_web_search(query)
-                        st.markdown(search_result)
-                        
+                        st.markdown(search_result) # Afficher le résultat
+
                         # Ajouter le résultat aux messages
                         st.session_state.messages.append({
-                            "role": "assistant",
+                            "role": "assistant", # Ou "search_result" si vous voulez un style distinct
                             "content": search_result,
                             "id": f"search_result_{datetime.now().isoformat()}"
                         })
                         save_current_conversation()
+                        st.rerun() # Rerun après avoir ajouté le résultat
+
                     except Exception as e:
                         error_msg = f"Erreur lors de la recherche web: {str(e)}"
                         st.error(error_msg)
@@ -811,6 +958,7 @@ if action_to_process and action_to_process.get("role") == "user":
                             "id": f"search_error_{datetime.now().isoformat()}"
                         })
                         save_current_conversation()
+                        st.rerun() # Rerun même après erreur
 
     else: # Traiter comme chat normal
         # --- Logique Réponse Claude ---
@@ -818,28 +966,26 @@ if action_to_process and action_to_process.get("role") == "user":
             placeholder = st.empty()
             with st.spinner("L'expert réfléchit..."):
                 try:
-                    # Préparer l'historique pour l'API
-                    history_for_claude = []
-                    for msg in st.session_state.messages[:-1]: # Exclure le dernier message utilisateur
-                        role, content = msg.get("role"), msg.get("content");
-                        # Ignorer les placeholders ou messages système non pertinents
-                        if role == "system" or msg.get("id", "").startswith("search_placeholder_"): continue # Ignorer placeholders de recherche
-                        # Simplifier le contenu (pas d'images ici, juste du texte)
-                        content_str = str(content)
-                        # Mapper les rôles correctement pour l'API Claude
-                        api_role = "assistant" if role in ["assistant", "search_result"] else "user"
-                        if role == "search_result":
-                             content_str = f"[Info Web]: {content_str}" # Préfixer le contenu de la recherche
-                        history_for_claude.append({"role": api_role, "content": content_str})
+                    # Préparer l'historique pour l'API Claude
+                    # Exclure le dernier message utilisateur de l'historique passé à Claude
+                    history_for_claude = [
+                        msg for msg in st.session_state.messages[:-1]
+                        if msg.get("role") in ["user", "assistant", "search_result"] # Filtrer les rôles valides
+                    ]
 
                     response_content = st.session_state.expert_advisor.obtenir_reponse(user_content, history_for_claude)
-                    placeholder.markdown(response_content, unsafe_allow_html=False)
+                    placeholder.markdown(response_content, unsafe_allow_html=False) # Afficher la réponse
                     st.session_state.messages.append({"role": "assistant", "content": response_content})
+                    save_current_conversation()
+                    st.rerun() # Rerun après la réponse de Claude
+
                 except Exception as e:
-                    error_msg = f"Erreur réponse Claude: {e}"; print(error_msg); st.exception(e)
-                    placeholder.error(f"Erreur technique Claude ({type(e).__name__}).")
-                    st.session_state.messages.append({"role": "assistant", "content": f"Erreur technique Claude ({type(e).__name__})."})
-        save_current_conversation()
-        st.rerun()
+                    error_msg = f"Erreur lors de l'obtention de la réponse de Claude: {e}"
+                    print(error_msg)
+                    st.exception(e)
+                    placeholder.error(f"Désolé, une erreur technique s'est produite avec l'IA ({type(e).__name__}).")
+                    st.session_state.messages.append({"role": "assistant", "content": f"Erreur technique avec l'IA ({type(e).__name__})."})
+                    save_current_conversation()
+                    st.rerun() # Rerun même après erreur
 
 # --- FIN DU FICHIER app.py ---
