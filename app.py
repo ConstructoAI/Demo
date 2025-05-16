@@ -261,10 +261,19 @@ def display_login_or_app():
     st.markdown("<h2 style='text-align: center;'>Connexion</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center;'>Veuillez entrer le mot de passe pour accéder à l'application.</p>", unsafe_allow_html=True)
 
-    correct_password = st.secrets.get("APP_PASSWORD")
+    # Obtenir le mot de passe depuis l'environnement ou secrets
+    import os
+    correct_password = os.environ.get("APP_PASSWORD")
+    if not correct_password:
+        # Essayer d'utiliser st.secrets comme fallback
+        try:
+            correct_password = st.secrets.get("APP_PASSWORD")
+        except:
+            pass
+    
     if not correct_password:
          st.error("Erreur de configuration: Secret 'APP_PASSWORD' non défini.")
-         st.info("Veuillez configurer ce secret.")
+         st.info("Veuillez configurer ce secret dans les variables d'environnement ou dans .streamlit/secrets.toml")
          return False
 
     _, login_col, _ = st.columns([1, 1.5, 1])
@@ -337,9 +346,21 @@ local_css("style.css") # Recharger pour s'assurer que les styles de l'app sont a
 
 # --- Load API Keys ---
 load_dotenv() # Pour le dev local si .env existe
-ANTHROPIC_API_KEY = st.secrets.get("ANTHROPIC_API_KEY")
+import os
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
+if not ANTHROPIC_API_KEY:
+    # Essayer d'utiliser st.secrets comme fallback
+    try:
+        ANTHROPIC_API_KEY = st.secrets.get("ANTHROPIC_API_KEY")
+    except:
+        pass
 # Load APP_PASSWORD (if needed elsewhere, otherwise it's loaded in display_login_or_app)
-APP_PASSWORD = st.secrets.get("APP_PASSWORD")
+APP_PASSWORD = os.environ.get("APP_PASSWORD")
+if not APP_PASSWORD:
+    try:
+        APP_PASSWORD = st.secrets.get("APP_PASSWORD")
+    except:
+        pass
 
 
 # --- Initialize Logic Classes & Conversation Manager ---
